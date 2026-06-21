@@ -202,8 +202,9 @@
 </div>
 
 <script>
-const today = new Date("2026-06-19");
+const today = new Date("2026-06-22");
 
+const JM="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XEh-RVfjDZo3XPLJFTs5XR8z.xIUPFx132";
 const HP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XAm-RVfjDZo3XPLJFPs5XR8yuxIUPFx132";
 const CL="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XAi-RVfjDZo3XPLJFHs5XR8yOxOVvFx132";
 const SS="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1X6m-RVfjDZo3XPLJ3ns5XR70OxIUPFx13";
@@ -212,6 +213,16 @@ const SE="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTv
 const P="https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026";
 
 const campaigns = [
+  {
+    vendor:"Jamf", title:"AI Governance on Mac: A Practical Guide for IT & Security Teams",
+    date:"2026-06-19", cat:"Incentive", emoji:"🍎",
+    deal:"🏆 Top net-new Jamf partner wins VIP F1 Singapore GP 2026 · campaign to 31 Aug",
+    img:P+"/Jamf/export-18-06-26/jamf-edm-18-06-26_01.png",
+    email:{ blocks:[
+      {img:P+"/Jamf/export-18-06-26/jamf-edm-18-06-26_01.png", href:JM+"njK"},
+      {img:P+"/Jamf/export-18-06-26/jamf-edm-18-06-26_02.png", href:JM+"njK"}
+    ], cta:{label:"View program details", href:JM+"lk8"} }
+  },
   {
     vendor:"HP Poly", title:"EOFY incentives now available on HP Poly solutions",
     date:"2026-06-18", cat:"AV & Collab", emoji:"🎧",
@@ -297,6 +308,11 @@ const campaigns = [
 ];
 
 const pitchData = [
+  { // Jamf Elevate
+    opener:"“Close net-new Jamf deals before 31 August and your top rep could be watching the F1 Singapore Grand Prix from a VIP suite — worth a conversation?”",
+    useCase:"Resellers selling Apple device management and security into Mac fleets — position Jamf to IT and security teams who need AI governance, compliance and endpoint control on macOS.",
+    why:"Net-new Jamf logo deals (USD $20k+ per rep) qualify for the ANZ incentive, and the top partner wins return flights, accommodation and VIP F1 Vista hospitality at the 2026 Singapore GP — strong margin plus a standout reward."
+  },
   { // HP Poly
     opener:"“Your hybrid meetings are only as good as the room they happen in — want to fix that before EOFY for up to 50% less?”",
     useCase:"Customers running hybrid teams with tired, hard-to-hear meeting rooms or legacy video kit. Trade up or kit out a first room with Teams / Zoom / Google Meet certified HP Poly gear.",
