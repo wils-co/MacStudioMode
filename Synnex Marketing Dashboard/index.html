@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Synnex Marketing Dashboard</title>
+<style>
+  :root{
+    --bg:#f4f6fc; --card:#ffffff; --card2:#fbfcff; --ink:#1a2238; --muted:#69748f;
+    --accent:#3b6cff; --accent2:#8a4bff; --good:#16a86b; --warn:#e0851a; --pink:#e84d9c;
+    --ring:rgba(59,108,255,.30);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+    color:var(--ink); background:
+      radial-gradient(1200px 600px at 10% -10%, #dbe5ff 0%, transparent 55%),
+      radial-gradient(1000px 500px at 110% 10%, #ecdcff 0%, transparent 50%),
+      var(--bg);
+    min-height:100vh;
+  }
+  header{
+    padding:34px 28px 10px; max-width:1240px; margin:0 auto;
+  }
+  .title{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  h1{
+    font-size:30px; margin:0; letter-spacing:.3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2),var(--pink));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .pulse{
+    width:11px;height:11px;border-radius:50%;background:var(--good);
+    box-shadow:0 0 0 0 rgba(54,211,153,.7); animation:pulse 2s infinite;
+  }
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(54,211,153,.6)}70%{box-shadow:0 0 0 12px rgba(54,211,153,0)}100%{box-shadow:0 0 0 0 rgba(54,211,153,0)}}
+  .sub{color:var(--muted); margin:8px 0 0; font-size:14px}
+  .stats{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+  .stat{
+    background:linear-gradient(160deg,var(--card),var(--card2));
+    border:1px solid rgba(20,30,60,.08); border-radius:14px; padding:12px 16px; min-width:120px;
+    box-shadow:0 6px 18px -12px rgba(30,50,110,.3);
+  }
+  .stat b{font-size:24px; display:block}
+  .stat span{color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.6px}
+  .filters{display:flex; gap:8px; flex-wrap:wrap; max-width:1240px; margin:22px auto 0; padding:0 28px}
+  .chip{
+    cursor:pointer; user-select:none; border:1px solid rgba(20,30,60,.14);
+    background:#fff; color:var(--ink); padding:8px 14px; border-radius:999px;
+    font-size:13px; transition:.2s; display:flex; align-items:center; gap:6px;
+  }
+  .chip:hover{border-color:var(--ring); transform:translateY(-1px)}
+  .chip.active{background:linear-gradient(90deg,var(--accent),var(--accent2)); border-color:transparent; color:#fff; font-weight:600}
+  .grid{
+    max-width:1240px; margin:24px auto 60px; padding:0 28px;
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid rgba(20,30,60,.10); border-radius:18px; overflow:hidden;
+    display:flex; flex-direction:column; transition:.25s; position:relative;
+    box-shadow:0 10px 26px -18px rgba(30,50,110,.35);
+  }
+  .card:hover{transform:translateY(-5px); border-color:var(--ring); box-shadow:0 22px 46px -20px rgba(59,108,255,.45)}
+  .thumb{position:relative; background:#fff; aspect-ratio:600/315; overflow:hidden}
+  .thumb img{width:100%; height:100%; object-fit:cover; display:block}
+  .thumb .fallback{
+    position:absolute; inset:0; display:none; align-items:center; justify-content:center;
+    font-size:64px; background:linear-gradient(135deg,#22305f,#3a1d55);
+  }
+  .new{
+    position:absolute; top:12px; left:12px; background:var(--pink); color:#1a0b14;
+    font-size:11px; font-weight:800; padding:4px 9px; border-radius:999px; letter-spacing:.4px;
+    box-shadow:0 4px 12px rgba(255,107,181,.5);
+  }
+  .body{padding:16px 16px 18px; display:flex; flex-direction:column; gap:10px; flex:1}
+  .vrow{display:flex; align-items:center; justify-content:space-between; gap:10px}
+  .vendor{font-size:12px; letter-spacing:.8px; text-transform:uppercase; color:var(--accent)}
+  .cat{font-size:11px; color:var(--muted); border:1px solid rgba(20,30,60,.14); padding:2px 8px; border-radius:999px; white-space:nowrap}
+  .ctitle{font-size:16.5px; font-weight:650; line-height:1.32; margin:0}
+  .emoji{font-size:20px}
+  .deal{
+    margin-top:auto; font-size:13px; background:rgba(22,168,107,.10); color:var(--good);
+    border:1px solid rgba(22,168,107,.28); padding:8px 10px; border-radius:10px; line-height:1.4;
+  }
+  .deal.none{background:rgba(138,75,255,.08); color:#7a4bd6; border-color:rgba(138,75,255,.25)}
+  .date{color:var(--muted); font-size:12px; display:flex; align-items:center; gap:6px}
+  .empty{grid-column:1/-1; text-align:center; color:var(--muted); padding:60px 0}
+  .card{cursor:pointer}
+  .open-hint{
+    font-size:12px; font-weight:600; color:var(--accent); display:flex; align-items:center; gap:5px;
+    opacity:.85; transition:.2s;
+  }
+  .card:hover .open-hint{opacity:1; gap:9px}
+  footer{max-width:1240px; margin:0 auto 40px; padding:0 28px; color:var(--muted); font-size:12px}
+  /* modal */
+  .modal{
+    position:fixed; inset:0; background:rgba(20,28,55,.55); backdrop-filter:blur(4px);
+    display:none; align-items:flex-start; justify-content:center; padding:40px 16px; z-index:50;
+    overflow:auto;
+  }
+  .modal.show{display:flex; animation:fade .2s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .sheet{
+    background:#fff; width:100%; max-width:640px; border-radius:18px; overflow:hidden;
+    box-shadow:0 30px 80px -20px rgba(10,20,60,.6); animation:rise .25s ease;
+  }
+  @keyframes rise{from{transform:translateY(18px);opacity:0}to{transform:translateY(0);opacity:1}}
+  .m-head{
+    display:flex; align-items:center; gap:14px; padding:16px 18px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#fff;
+  }
+  .m-head .meta{flex:1; min-width:0}
+  .m-vendor{font-size:12px; letter-spacing:.8px; text-transform:uppercase; opacity:.9}
+  .m-title{font-size:16px; font-weight:650; line-height:1.3; margin:2px 0 0;
+    overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical}
+  .m-close{
+    background:rgba(255,255,255,.2); border:0; color:#fff; width:34px; height:34px; border-radius:50%;
+    font-size:18px; cursor:pointer; flex-shrink:0; transition:.2s;
+  }
+  .m-close:hover{background:rgba(255,255,255,.35); transform:rotate(90deg)}
+  .m-frame{width:100%; height:70vh; border:0; display:block; background:#fff}
+  /* card action buttons */
+  .actions{display:flex; gap:8px; margin-top:6px}
+  .act{
+    flex:1; border:0; border-radius:10px; padding:9px 8px; font-size:12px; font-weight:700;
+    cursor:pointer; transition:.2s; font-family:inherit; line-height:1.2;
+  }
+  .act-email{background:rgba(59,108,255,.10); color:var(--accent); border:1px solid rgba(59,108,255,.25)}
+  .act-email:hover{background:rgba(59,108,255,.18)}
+  .act-pitch{background:linear-gradient(90deg,var(--accent2),var(--pink)); color:#fff}
+  .act-pitch:hover{filter:brightness(1.06); transform:translateY(-1px)}
+  /* pitch modal */
+  .p-sheet{
+    background:#fff; width:100%; max-width:560px; border-radius:18px; overflow:hidden;
+    box-shadow:0 30px 80px -20px rgba(10,20,60,.6); animation:rise .25s ease;
+  }
+  .p-head{display:flex; align-items:center; gap:14px; padding:16px 18px;
+    background:linear-gradient(90deg,var(--accent2),var(--pink)); color:#fff}
+  .p-body{padding:22px}
+  .p-opener{
+    font-size:19px; line-height:1.45; font-weight:650; color:var(--ink); margin:0 0 20px;
+    padding:16px 18px; background:linear-gradient(135deg,rgba(59,108,255,.08),rgba(232,77,156,.08));
+    border-left:4px solid var(--accent2); border-radius:0 12px 12px 0;
+  }
+  .p-label{font-size:11px; font-weight:800; letter-spacing:.9px; text-transform:uppercase;
+    color:var(--accent2); margin:0 0 5px; display:flex; align-items:center; gap:6px}
+  .p-text{font-size:14px; line-height:1.55; color:var(--ink); margin:0 0 18px}
+</style>
+</head>
+<body>
+<header>
+  <div class="title">
+    <span class="pulse"></span>
+    <h1>Synnex Marketing Dashboard</h1>
+    <span style="font-size:26px">🚀</span>
+  </div>
+  <p class="sub">Live feed of Team Synnex &amp; Synnex Cloud campaigns landing in your inbox · <span id="updated"></span></p>
+  <div class="stats">
+    <div class="stat"><b id="s-total">0</b><span>Active campaigns</span></div>
+    <div class="stat"><b id="s-deals">0</b><span>With offers 💸</span></div>
+    <div class="stat"><b id="s-vendors">0</b><span>Vendors</span></div>
+    <div class="stat"><b id="s-new">0</b><span>New today ✨</span></div>
+  </div>
+</header>
+
+<div class="filters" id="filters"></div>
+<div class="grid" id="grid"></div>
+<footer>Click any campaign to open the full email with working links · showing the last 14 days · pricelists, stock &amp; allocation reports excluded · Synnex Australia</footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeEmail()">
+  <div class="sheet">
+    <div class="m-head">
+      <div class="meta">
+        <div class="m-vendor" id="m-vendor"></div>
+        <div class="m-title" id="m-title"></div>
+      </div>
+      <button class="m-close" onclick="closeEmail()" title="Close (Esc)">✕</button>
+    </div>
+    <iframe class="m-frame" id="m-frame" title="Email preview"></iframe>
+  </div>
+</div>
+
+<div class="modal" id="pmodal" onclick="if(event.target===this)closePitch()">
+  <div class="p-sheet">
+    <div class="p-head">
+      <div class="meta">
+        <div class="m-vendor" id="p-vendor"></div>
+        <div class="m-title" id="p-title"></div>
+      </div>
+      <button class="m-close" onclick="closePitch()" title="Close (Esc)">✕</button>
+    </div>
+    <div class="p-body">
+      <p class="p-opener" id="p-opener"></p>
+      <p class="p-label">💼 Business use case</p>
+      <p class="p-text" id="p-usecase"></p>
+      <p class="p-label">⭐ Why they should buy</p>
+      <p class="p-text" id="p-why" style="margin-bottom:0"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+const today = new Date("2026-06-19");
+
+const HP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XAm-RVfjDZo3XPLJFPs5XR8yuxIUPFx132";
+const CL="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XAi-RVfjDZo3XPLJFHs5XR8yOxOVvFx132";
+const SS="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1X6m-RVfjDZo3XPLJ3ns5XR70OxIUPFx13";
+const AS="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1X2h-RVfjDZo3XPLJ3js5XR70.xIUPFx13y";
+const SE="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1Xyk-RVfjDZo3XPLJ3Ps5XR7yuxIUPFx1nU";
+const P="https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026";
+
+const campaigns = [
+  {
+    vendor:"HP Poly", title:"EOFY incentives now available on HP Poly solutions",
+    date:"2026-06-18", cat:"AV & Collab", emoji:"🎧",
+    deal:"💸 Save up to 50% on eligible HP Poly meeting room solutions",
+    img:P+"/HP-POLY/export-17-06-26/Poly-eDM-17-06-26_01.png",
+    email:{ blocks:[
+      {img:P+"/HP-POLY/export-17-06-26/Poly-eDM-17-06-26_01.png", href:HP+"jia"},
+      {img:P+"/HP-POLY/export-17-06-26/Poly-eDM-17-06-26_02.png", href:HP+"li8"},
+      {img:P+"/HP-POLY/export-17-06-26/Poly-eDM-17-06-26_03.png", href:HP+"liK"},
+      {img:P+"/HP-POLY/export-17-06-26/Poly-eDM-17-06-26_04.png"},
+      {img:P+"/HP-POLY/export-17-06-26/Poly-eDM-17-06-26_05.png", href:HP+"lia"}
+    ], cta:{label:"Learn more", href:HP+"jia"} }
+  },
+  {
+    vendor:"Synnex Cloud", title:"Cloud Newsletter — June 2026",
+    date:"2026-06-18", cat:"Cloud", emoji:"☁️",
+    deal:"📰 Monthly roundup of cloud offers, vendors & enablement",
+    img:P+"/Cloud/export-17-06-26/cloud-edm-17-06-26_01.png",
+    email:{ blocks:[
+      {img:P+"/Cloud/export-17-06-26/cloud-edm-17-06-26_01.png", href:"mailto:cloud@au.synnex-grp.com"},
+      {img:P+"/Cloud/export-17-06-26/cloud-edm-17-06-26_02.png", href:CL+"gj8"},
+      {img:P+"/Cloud/export-17-06-26/cloud-edm-17-06-26_03.png", href:CL+"giq"},
+      {img:P+"/Cloud/export-17-06-26/cloud-edm-17-06-26_04.png", href:CL+"liq"}
+    ], cta:{label:"Contact Synnex Cloud", href:"mailto:cloud@au.synnex-grp.com"} }
+  },
+  {
+    vendor:"Samsung", title:"Meet the new Samsung ViewFinity S8 40” WUHD Monitor",
+    date:"2026-06-17", cat:"Devices", emoji:"🖥️",
+    deal:"🆕 New product launch — 40” WUHD productivity monitor",
+    img:P+"/Samsung/export-15-06-26/1.png",
+    email:{ blocks:[
+      {img:P+"/Samsung/export-15-06-26/1.png", href:SS+"ynja"},
+      {img:P+"/Samsung/export-15-06-26/2.png", href:SS+"ynja"},
+      {img:P+"/Samsung/export-15-06-26/3.png"}
+    ], cta:{label:"Learn more", href:SS+"ynja"} }
+  },
+  {
+    vendor:"ASUS", title:"Unlock tax time offers on ASUS ExpertBook devices",
+    date:"2026-06-15", cat:"EOFY Deals", emoji:"💻",
+    deal:"🎁 Bonus $100 gift card per eligible ExpertBook · 1–30 June, first 250 units",
+    img:P+"/ASUS/AU/export-02-06-26/asus-edm-15-06-26_01.png",
+    email:{ blocks:[
+      {img:P+"/ASUS/AU/export-02-06-26/asus-edm-15-06-26_01.png", href:AS+"jia"},
+      {img:P+"/ASUS/AU/export-02-06-26/asus-edm-02-06-26_02.png", href:AS+"jiq"},
+      {img:P+"/ASUS/AU/export-02-06-26/asus-edm-02-06-26_03.png", href:AS+"jj8"},
+      {img:P+"/ASUS/AU/export-02-06-26/asus-edm-02-06-26_04.png", href:AS+"jjK"},
+      {img:P+"/ASUS/AU/export-02-06-26/asus-edm-02-06-26_05.png", href:AS+"jja"},
+      {img:P+"/ASUS/AU/export-02-06-26/asus-edm-02-06-26_06.png"}
+    ], cta:{label:"Learn more", href:AS+"jia"} }
+  },
+  {
+    vendor:"Synnex Cloud", title:"Modernise to an AI-ready Cloud",
+    date:"2026-06-12", cat:"Cloud", emoji:"🤖",
+    deal:"📘 Free IT-leader guide: assess, plan, migrate & innovate for AI",
+    img:"https://assets.structuredweb.com/213d8a19a2/Email%20and%20Landing%20Page%20Thumbnail-fb323e2f-3a8c-48b2-9704-a7f74a837cd1.png",
+    email:{ html:`
+      <div style="padding:24px 26px;font-family:Arial,sans-serif;color:#202124">
+        <h1 style="font-size:24px;margin:0 0 14px">Don't just migrate. Modernise for AI.</h1>
+        <img src="https://assets.structuredweb.com/213d8a19a2/Email%20and%20Landing%20Page%20Thumbnail-fb323e2f-3a8c-48b2-9704-a7f74a837cd1.png" style="max-width:260px;width:100%;border-radius:8px;margin:0 0 16px">
+        <p>Many AI strategies fail not on paper, but on legacy infrastructure that can't keep up. An AI-ready cloud is the foundation for turning your AI ambitions into reality.</p>
+        <p><strong>This new guide gives IT leaders a roadmap to:</strong></p>
+        <ul style="line-height:1.7">
+          <li>Modernise on three pillars: agility, advanced tools and cost-efficiency.</li>
+          <li>Follow a proven framework: assess, plan, migrate and innovate.</li>
+          <li>Confidently migrate VMs, containers, VMware, SAP, Oracle and NetApp.</li>
+        </ul>
+        <p>Download the guide to start building your AI-ready cloud today.</p>
+      </div>`,
+      cta:{label:"View Guide", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1Xyl-RVfjDZo3XPIJFDs5XJ6yuxOVvFx1HMljq"} }
+  },
+  {
+    vendor:"Seagate", title:"The future of enterprise storage starts with Seagate Exos",
+    date:"2026-06-12", cat:"Storage", emoji:"💾",
+    deal:"🏆 Enterprise-grade Exos drives for scale-out storage",
+    img:P+"/Seagate/export-11-06-26/seagate-edm-11-06-26_01.png",
+    email:{ blocks:[
+      {img:P+"/Seagate/export-11-06-26/seagate-edm-11-06-26_01.png", href:SE+"mi8"},
+      {img:P+"/Seagate/export-11-06-26/seagate-edm-11-06-26_02.png", href:SE+"mi8"},
+      {img:P+"/Seagate/export-11-06-26/seagate-edm-11-06-26_03.png", href:SE+"mi8"},
+      {img:P+"/Seagate/export-11-06-26/seagate-edm-11-06-26_04.png", href:SE+"miK"}
+    ], cta:{label:"Learn more", href:SE+"mi8"} }
+  }
+];
+
+const pitchData = [
+  { // HP Poly
+    opener:"“Your hybrid meetings are only as good as the room they happen in — want to fix that before EOFY for up to 50% less?”",
+    useCase:"Customers running hybrid teams with tired, hard-to-hear meeting rooms or legacy video kit. Trade up or kit out a first room with Teams / Zoom / Google Meet certified HP Poly gear.",
+    why:"Certified for the big three platforms, stronger security aligned to Windows 11 & Android 13, and EOFY incentives plus trade-up credits make it an easy tax-time spend."
+  },
+  { // Cloud Newsletter
+    opener:"“Want a 60-second heads-up on this month’s best cloud promos and margin opportunities?”",
+    useCase:"Resellers who want to stay ahead of cloud vendor offers, rebates and enablement without trawling every vendor portal.",
+    why:"Every current Synnex cloud offer curated in one place — spot the margin and co-marketing opportunities early and lead the conversation with customers."
+  },
+  { // Samsung ViewFinity
+    opener:"“What if one screen could replace your customer’s dual-monitor clutter with 40 inches of WUHD workspace?”",
+    useCase:"Finance, dev, design and data teams who live in spreadsheets and multiple windows — plus clean single-cable docking for hot-desks and exec setups.",
+    why:"40” WUHD = huge productivity area, fewer cables and a premium feel. An effortless upsell on any laptop or desktop refresh."
+  },
+  { // ASUS ExpertBook
+    opener:"“Buy the laptops you were already planning to before 30 June and pocket a $100 gift card on every one — worth a look?”",
+    useCase:"SMBs and fleets refreshing business laptops at tax time with durable, manageable ExpertBook B/P series devices.",
+    why:"Bonus $100 gift card per eligible unit (first 250, ends 30 June), EOFY timing for the write-off, and business-grade reliability and security."
+  },
+  { // AI-ready Cloud
+    opener:"“Most AI projects don’t fail on strategy — they fail on infrastructure. Is your customer’s cloud actually AI-ready?”",
+    useCase:"IT leaders planning AI or data workloads but stuck on legacy infrastructure — migrating VMs, containers, VMware, SAP, Oracle and NetApp.",
+    why:"A free roadmap guide positions you as the trusted advisor and opens the door to much larger cloud migration and modernisation deals."
+  },
+  { // Seagate Exos
+    opener:"“Data’s growing faster than budgets — want enterprise capacity at the lowest cost per terabyte?”",
+    useCase:"Customers scaling backup, surveillance, NAS or data-centre storage who need bulk capacity without enterprise-array pricing.",
+    why:"Exos delivers high-capacity, enterprise-grade reliability and the best $/TB for scale-out storage — a repeatable, high-volume sell."
+  }
+];
+campaigns.forEach((c,i)=>{ c.pitch = pitchData[i]; });
+
+function openPitch(i){
+  const c = campaigns[i];
+  document.getElementById("p-vendor").textContent = c.emoji + "  " + c.vendor;
+  document.getElementById("p-title").textContent = c.title;
+  document.getElementById("p-opener").textContent = c.pitch.opener;
+  document.getElementById("p-usecase").textContent = c.pitch.useCase;
+  document.getElementById("p-why").textContent = c.pitch.why;
+  document.getElementById("pmodal").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+function closePitch(){
+  document.getElementById("pmodal").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+function emailDoc(c){
+  let inner = "";
+  if(c.email.html){ inner = c.email.html; }
+  else {
+    inner = '<div style="max-width:600px;margin:0 auto">' + c.email.blocks.map(b =>
+      b.href
+        ? `<a href="${b.href}" target="_blank" rel="noopener"><img src="${b.img}" style="width:100%;display:block;border:0"></a>`
+        : `<img src="${b.img}" style="width:100%;display:block;border:0">`
+    ).join("") + "</div>";
+  }
+  if(c.email.cta){
+    inner += `<div style="text-align:center;padding:22px"><a href="${c.email.cta.href}" target="_blank" rel="noopener" style="display:inline-block;background:#3b6cff;color:#fff;padding:13px 34px;border-radius:9px;text-decoration:none;font-weight:700;font-family:Arial,sans-serif;box-shadow:0 8px 20px -8px rgba(59,108,255,.7)">${c.email.cta.label} →</a></div>`;
+  }
+  return `<!DOCTYPE html><html><head><base target="_blank"><meta charset="utf-8"><style>body{margin:0;background:#fff;font-family:'Segoe UI',Arial,sans-serif}a img{transition:.15s}a:hover img{filter:brightness(.97)}</style></head><body>${inner}</body></html>`;
+}
+
+function openEmail(i){
+  const c = campaigns[i];
+  document.getElementById("m-vendor").textContent = c.emoji + "  " + c.vendor;
+  document.getElementById("m-title").textContent = c.title;
+  document.getElementById("m-frame").srcdoc = emailDoc(c);
+  document.getElementById("modal").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+function closeEmail(){
+  document.getElementById("modal").classList.remove("show");
+  document.getElementById("m-frame").srcdoc = "";
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeEmail(); closePitch(); } });
+
+const catColors = {
+  "Storage":"#5b8cff","Cloud":"#36d399","AV & Collab":"#ff6bb5",
+  "Devices":"#ffb454","EOFY Deals":"#9b6bff","Incentive":"#f87272"
+};
+
+const fmt = d => new Date(d).toLocaleDateString("en-AU",{day:"numeric",month:"short"});
+const daysAgo = d => Math.round((today - new Date(d))/86400000);
+
+document.getElementById("updated").textContent =
+  "Updated " + today.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+
+// stats
+document.getElementById("s-total").textContent = campaigns.length;
+document.getElementById("s-deals").textContent = campaigns.filter(c=>/[💸🎁🏆]/.test(c.deal)).length;
+document.getElementById("s-vendors").textContent = new Set(campaigns.map(c=>c.vendor)).size;
+document.getElementById("s-new").textContent = campaigns.filter(c=>daysAgo(c.date)<=1).length;
+
+// filters
+const cats = ["All", ...Array.from(new Set(campaigns.map(c=>c.cat)))];
+let active = "All";
+const fbox = document.getElementById("filters");
+cats.forEach(cat=>{
+  const el = document.createElement("div");
+  el.className = "chip"+(cat==="All"?" active":"");
+  el.innerHTML = cat==="All" ? "✨ All" : `<span style="width:8px;height:8px;border-radius:50%;background:${catColors[cat]||'#888'}"></span>${cat}`;
+  el.onclick = ()=>{active=cat; [...fbox.children].forEach(c=>c.classList.remove("active")); el.classList.add("active"); render();};
+  fbox.appendChild(el);
+});
+
+function render(){
+  const grid = document.getElementById("grid");
+  const list = campaigns
+    .filter(c=>active==="All"||c.cat===active)
+    .sort((a,b)=>new Date(b.date)-new Date(a.date));
+  grid.innerHTML = "";
+  if(!list.length){grid.innerHTML='<div class="empty">No campaigns in this category 🤷</div>';return;}
+  list.forEach(c=>{
+    const idx = campaigns.indexOf(c);
+    const isNew = daysAgo(c.date)<=1;
+    const card = document.createElement("div");
+    card.className = "card";
+    card.onclick = ()=>openEmail(idx);
+    card.innerHTML = `
+      <div class="thumb">
+        ${isNew?'<span class="new">✨ NEW</span>':''}
+        <img src="${c.img}" alt="${c.vendor}" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="fallback">${c.emoji}</div>
+      </div>
+      <div class="body">
+        <div class="vrow">
+          <span class="vendor">${c.emoji} ${c.vendor}</span>
+          <span class="cat" style="border-color:${(catColors[c.cat]||'#888')}55;color:${catColors[c.cat]||'#aaa'}">${c.cat}</span>
+        </div>
+        <h3 class="ctitle">${c.title}</h3>
+        <div class="deal${/[💸🎁🏆]/.test(c.deal)?'':' none'}">${c.deal}</div>
+        <div class="date">🗓️ ${fmt(c.date)} · ${daysAgo(c.date)===0?'today':daysAgo(c.date)+'d ago'}</div>
+        <div class="actions">
+          <button class="act act-email" onclick="event.stopPropagation();openEmail(${idx})">📧 Open email</button>
+          <button class="act act-pitch" onclick="event.stopPropagation();openPitch(${idx})">💬 One Line Sales Pitch</button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+render();
+</script>
+</body>
+</html>
