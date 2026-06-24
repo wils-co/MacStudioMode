@@ -202,7 +202,7 @@
 </div>
 
 <script>
-const today = new Date("2026-06-23");
+const today = new Date("2026-06-24");
 
 const JM="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XEh-RVfjDZo3XPLJFTs5XR8z.xIUPFx132";
 const HP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XAm-RVfjDZo3XPLJFPs5XR8yuxIUPFx132";
@@ -211,9 +211,34 @@ const SS="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTv
 const AS="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1X2h-RVfjDZo3XPLJ3js5XR70.xIUPFx13y";
 const SE="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1Xyk-RVfjDZo3XPLJ3Ps5XR7yuxIUPFx1nU";
 const AU="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XEk-RVfjDZo3XPLJFbs5XR8zexIUPFx";
+const LG="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XMm-RVfjDZo3XPLJFns5XR80OxIUPFx136";
+const APMAIL="mailto:appleteam@au.synnex-grp.com?subject=Apple%20MacBook%20Neo/STM/WhiteGlove%20Bundle%20for%202026%20Education%20Season";
 const P="https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026";
 
 const campaigns = [
+  {
+    vendor:"Logitech", title:"Make your Mac pop with Logitech Pop Mouse",
+    date:"2026-06-24", cat:"AV & Collab", emoji:"🖱️",
+    deal:"🆕 Logitech Pop Mouse — colourful, customisable Mac accessory · free delivery over $700ex",
+    img:P+"/Logitech/EXPORT-22-06-26/logitech-edm-22-06-26_01.png",
+    email:{ blocks:[
+      {img:P+"/Logitech/EXPORT-22-06-26/logitech-edm-22-06-26_01.png", href:LG+"ni8"},
+      {img:P+"/Logitech/EXPORT-22-06-26/logitech-edm-22-06-26_02.png"},
+      {img:P+"/Logitech/EXPORT-22-06-26/logitech-edm-22-06-26_03.png", href:LG+"ni8"}
+    ], cta:{label:"Shop Logitech Pop", href:LG+"ni8"} }
+  },
+  {
+    vendor:"Apple", title:"Everything you need for MacBook Neo in one complete bundle",
+    date:"2026-06-23", cat:"Devices", emoji:"🍏",
+    deal:"🎁 MacBook Neo + STM accessory bundle + White Glove config — quote STM-NEOBUNDLE for 2026 education season",
+    img:P+"/Apple/EXPORT-16-06-26/apple-EDM-mbn-16-06-26_01.png",
+    email:{ blocks:[
+      {img:P+"/Apple/EXPORT-16-06-26/apple-EDM-mbn-16-06-26_01.png", href:APMAIL},
+      {img:P+"/Apple/EXPORT-16-06-26/apple-EDM-mbn-16-06-26_02.png", href:APMAIL},
+      {img:P+"/Apple/EXPORT-16-06-26/apple-EDM-mbn-16-06-26_03.png", href:APMAIL},
+      {img:P+"/Apple/EXPORT-16-06-26/apple-EDM-mbn-16-06-26_04.png", href:APMAIL}
+    ], cta:{label:"Enquire with the Apple team", href:APMAIL} }
+  },
   {
     vendor:"ASUS", title:"ASUS ExpertBook Ultra | The Flagship of the Industry",
     date:"2026-06-22", cat:"Devices", emoji:"💻",
@@ -322,6 +347,16 @@ const campaigns = [
 ];
 
 const pitchData = [
+  { // Logitech Pop Mouse
+    opener:"“Just sold a Mac? Add a splash of colour and an easy-margin accessory before the customer walks — the Logitech Pop Mouse practically sells itself.”",
+    useCase:"An effortless add-on for every Mac, MacBook or iMac sale — great for students, creatives and anyone personalising their setup with colourful, customisable peripherals.",
+    why:"Low-friction impulse upsell with healthy attach margin: compact, customisable, Mac-friendly, and free delivery once the basket tips over $700ex makes bundling a no-brainer."
+  },
+  { // Apple MacBook Neo bundle
+    opener:"“What if every MacBook Neo went out the door fully kitted and configured — accessories, protection and White Glove setup — in a single SKU?”",
+    useCase:"Education and fleet customers gearing up for the 2026 school season who want MacBook Neo devices delivered ready-to-deploy with STM cases and configuration done.",
+    why:"One simple order (quote STM-NEOBUNDLE) bundles the MacBook Neo with the STM accessory pack and White Glove config — higher deal value, less admin, and a turnkey rollout for the customer."
+  },
   { // ASUS ExpertBook Ultra
     opener:"“What if your customer's next exec laptop was literally the flagship of the industry — AI-ready, premium-built and ready to ship today?”",
     useCase:"Executives, professionals and power users due for a premium refresh — the ExpertBook Ultra suits anyone who wants top-tier performance and build quality, not just a budget fleet device.",
