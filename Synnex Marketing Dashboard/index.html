@@ -202,7 +202,7 @@
 </div>
 
 <script>
-const today = new Date("2026-06-25");
+const today = new Date("2026-06-26");
 
 const JM="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XEh-RVfjDZo3XPLJFTs5XR8z.xIUPFx132";
 const HP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XAm-RVfjDZo3XPLJFPs5XR8yuxIUPFx132";
@@ -216,8 +216,36 @@ const APMAIL="mailto:appleteam@au.synnex-grp.com?subject=Apple%20MacBook%20Neo/S
 const TG="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XQg-RVfjDZo3XPLKXLs5XR9yexIUPFx13-";
 const TGMAIL="mailto:kelvinch@au.synnex-grp.com?subject=TEAM%20GROUP%20-%20T-CREATE%20Master%20R-DIMM%20Enquiry%20";
 const P="https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026";
+const AP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XQk-RVfjDZo3XPLKXDs5XR9y.xIUPFx13";
+const APREFRESH="mailto:appleteam@au.synnex-grp.com?subject=Apple%20Refresh%2bonus%20offer";
+const CSP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XQj-RVfjDZo3XPLKXPs5XR9yuxIUPFx13";
 
 const campaigns = [
+  {
+    vendor:"Apple", title:"Apple Newsletter | What’s new from WWDC26",
+    date:"2026-06-26", cat:"Devices", emoji:"🍏",
+    deal:"🎁 WWDC26 wrap-up + Apple Refresh bonus offer — Apple Intelligence, Siri AI & the latest devices · free delivery over $700ex",
+    img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_01.png",
+    email:{ blocks:[
+      {img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_01.png"},
+      {img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_02.png", href:AP+"-jiK"},
+      {img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_03.png", href:AP+"-ji8"},
+      {img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_04.png", href:APREFRESH},
+      {img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_05.png", href:AP+"6njK"}
+    ], cta:{label:"Enquire about Apple Refresh", href:APREFRESH} }
+  },
+  {
+    vendor:"Synnex CSP", title:"Last chance to win tickets to the ultimate footy games with Synnex CSP",
+    date:"2026-06-25", cat:"Incentive", emoji:"🏉",
+    deal:"🏆 Final call — transact Microsoft CSP through Synnex to win VIP footy game tickets",
+    img:P+"/MS-CSP/export-25-06-26/ms-csp-edm-25-06-26_01.png",
+    email:{ blocks:[
+      {img:P+"/MS-CSP/export-25-06-26/ms-csp-edm-25-06-26_01.png", href:CSP+"-mjq"},
+      {img:P+"/MS-CSP/export-25-06-26/ms-csp-edm-25-06-26_02.png", href:CSP+"-oia"},
+      {img:P+"/MS-CSP/export-25-06-26/ms-csp-edm-25-06-26_03.png", href:CSP+"Ajiq"},
+      {img:P+"/MS-CSP/export-25-06-26/ms-csp-edm-25-06-26_04.png", href:CSP+"-oiq"}
+    ], cta:{label:"See incentive details", href:CSP+"-mj8"} }
+  },
   {
     vendor:"Team Group", title:"Power workstations with T-CREATE MASTER R-DIMM Memory",
     date:"2026-06-24", cat:"Storage", emoji:"🧠",
@@ -362,6 +390,16 @@ const campaigns = [
 ];
 
 const pitchData = [
+  { // Apple WWDC26 Newsletter
+    opener:"“Your Apple customers just watched WWDC26 — strike while the hype is hot and turn the buzz into refresh deals.”",
+    useCase:"Apple-focused resellers and their business and education customers who want the post-WWDC26 rundown — Apple Intelligence, Siri AI and the latest devices — plus the Apple Refresh bonus offer to drive upgrades.",
+    why:"A ready-made talking point for every Apple account: the newsletter packages the WWDC26 announcements alongside the Apple Refresh + bonus offer, so you can convert interest into upgrade and trade-in deals, with free delivery over $700ex."
+  },
+  { // Synnex CSP footy competition
+    opener:"“Run your Microsoft CSP through Synnex before the window shuts and your team could be at the footy in a VIP box — but this is the last chance to enter.”",
+    useCase:"Partners selling Microsoft 365 and Azure who want extra reason to consolidate their cloud transactions through Synnex CSP this period.",
+    why:"It's the final call on the incentive: route eligible Microsoft CSP business through Synnex to go in the draw for VIP tickets to the ultimate footy games — the same deals you're already doing, plus a standout reward and CSP support on 1300 100 108."
+  },
   { // Team Group T-CREATE MASTER R-DIMM
     opener:"“Selling AI rigs and creator workstations? The memory inside is where the deal quietly grows — T-CREATE MASTER R-DIMM is the easy, high-value attach.”",
     useCase:"Customers building or upgrading workstations and servers for AI, rendering, simulation and content creation who need high-capacity, rock-stable registered ECC memory.",
