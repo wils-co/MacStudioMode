@@ -202,7 +202,7 @@
 </div>
 
 <script>
-const today = new Date("2026-07-03");
+const today = new Date("2026-07-08");
 
 const JM="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XEh-RVfjDZo3XPLJFTs5XR8z.xIUPFx132";
 const HP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XAm-RVfjDZo3XPLJFPs5XR8yuxIUPFx132";
@@ -220,7 +220,49 @@ const AP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTv
 const APREFRESH="mailto:appleteam@au.synnex-grp.com?subject=Apple%20Refresh%2bonus%20offer";
 const CSP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XQj-RVfjDZo3XPLKXPs5XR9yuxIUPFx13";
 
+const NRLGF="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1n6n-RVfjDZo3XPMIXDs5XR-0OxIUPFx13M";
+const JAYC="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1n2k-RVfjDZo3XPLKnns5XR-0.xIUPFx13Ipia";
+const HPEB="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1n2h-RVfjDZo3XPLKnfs5XR-zexIUPFx13I";
+const CSPMAIL="mailto:csp@au.synnex-grp.com?subject=New%20Price%20Drop%20Enquiry";
+
 const campaigns = [
+  {
+    vendor:"Synnex CSP", title:"Win tickets to NRL & NRLW Grand Finals with Synnex CSP",
+    date:"2026-07-07", cat:"Incentive", emoji:"🏉",
+    deal:"🏆 Transact Microsoft CSP with Synnex for your shot at NRL & NRLW Grand Final tickets",
+    img:P+"/MS-CSP/export-07-07-26/ms-csp-edm-07-07-26_01.png",
+    email:{ blocks:[
+      {img:P+"/MS-CSP/export-07-07-26/ms-csp-edm-07-07-26_01.png", href:NRLGF+"iiq"},
+      {img:P+"/MS-CSP/export-07-07-26/ms-csp-edm-07-07-26_02.png", href:NRLGF+"ij8"},
+      {img:P+"/MS-CSP/export-07-07-26/ms-csp-edm-07-07-26_03.png", href:CSPMAIL},
+      {img:P+"/MS-CSP/export-07-07-26/ms-csp-edm-07-07-26_04.png", href:NRLGF+"hi8"}
+    ], cta:{label:"Enquire with Synnex CSP", href:CSPMAIL} }
+  },
+  {
+    vendor:"Microsoft", title:"Score tickets to the Jay Chou concert with Microsoft and Synnex",
+    date:"2026-07-07", cat:"Incentive", emoji:"🎤",
+    deal:"🏆 Jay Chou concert tickets up for grabs — eligible sales 1 Jul to 30 Sep 2026 · $500pp travel credit for interstate winners",
+    img:P+"/MS-OEM/export-06-07-26/ms-oem-edm-06-07-26_01.png",
+    email:{ blocks:[
+      {img:P+"/MS-OEM/export-06-07-26/ms-oem-edm-06-07-26_01.png", href:JAYC},
+      {img:P+"/MS-OEM/export-06-07-26/ms-oem-edm-06-07-26_02.png"},
+      {img:P+"/MS-OEM/export-06-07-26/ms-oem-edm-06-07-26_03.png", href:JAYC}
+    ], cta:{label:"See incentive details", href:JAYC} }
+  },
+  {
+    vendor:"HP", title:"Last chance to save on selected HP EliteBook devices",
+    date:"2026-07-06", cat:"Devices", emoji:"💻",
+    deal:"💸 Final days of savings on selected HP EliteBook AI PCs · free delivery over $700ex",
+    img:P+"/HP/export-02-07-26/hp-edm-02-07-26_01.png",
+    email:{ blocks:[
+      {img:P+"/HP/export-02-07-26/hp-edm-02-07-26_01.png"},
+      {img:P+"/HP/export-02-07-26/hp-edm-02-07-26_02.png"},
+      {img:P+"/HP/export-02-07-26/hp-edm-02-07-26_03.png"},
+      {img:P+"/HP/export-02-07-26/hp-edm-02-07-26_04.png", href:HPEB+"nia"},
+      {img:P+"/HP/export-18-05-26/4.png", href:HPEB+"ljK"},
+      {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2025/HP-PS/export-10-12-25/support-banner.png", href:"mailto:hppsg@au.synnex-grp.com"}
+    ], cta:{label:"Enquire with the HP team", href:"mailto:hppsg@au.synnex-grp.com?subject=HP%20EliteBook%20Savings%20Enquiry"} }
+  },
   {
     vendor:"Synnex CSP", title:"While the market shifts, we are dropping our prices",
     date:"2026-07-02", cat:"Cloud", emoji:"📉",
@@ -316,45 +358,25 @@ const campaigns = [
       {img:P+"/Logitech/EXPORT-22-06-26/logitech-edm-22-06-26_02.png"},
       {img:P+"/Logitech/EXPORT-22-06-26/logitech-edm-22-06-26_03.png", href:LG+"ni8"}
     ], cta:{label:"Shop Logitech Pop", href:LG+"ni8"} }
-  },
-  {
-    vendor:"Apple", title:"Everything you need for MacBook Neo in one complete bundle",
-    date:"2026-06-23", cat:"Devices", emoji:"🍏",
-    deal:"🎁 MacBook Neo + STM accessory bundle + White Glove config — quote STM-NEOBUNDLE for 2026 education season",
-    img:P+"/Apple/EXPORT-16-06-26/apple-EDM-mbn-16-06-26_01.png",
-    email:{ blocks:[
-      {img:P+"/Apple/EXPORT-16-06-26/apple-EDM-mbn-16-06-26_01.png", href:APMAIL},
-      {img:P+"/Apple/EXPORT-16-06-26/apple-EDM-mbn-16-06-26_02.png", href:APMAIL},
-      {img:P+"/Apple/EXPORT-16-06-26/apple-EDM-mbn-16-06-26_03.png", href:APMAIL},
-      {img:P+"/Apple/EXPORT-16-06-26/apple-EDM-mbn-16-06-26_04.png", href:APMAIL}
-    ], cta:{label:"Enquire with the Apple team", href:APMAIL} }
-  },
-  {
-    vendor:"ASUS", title:"ASUS ExpertBook Ultra | The Flagship of the Industry",
-    date:"2026-06-22", cat:"Devices", emoji:"💻",
-    deal:"🆕 Flagship ExpertBook Ultra launch — AI-ready business performance · free delivery over $700ex",
-    img:P+"/ASUS/AU/export-22-06-26/ASUS_ExpertBook_Ultra_EDM_EndUser_640px_Synnex_01.jpg",
-    email:{ blocks:[
-      {img:P+"/ASUS/AU/export-22-06-26/ASUS_ExpertBook_Ultra_EDM_EndUser_640px_Synnex_01.jpg", href:AU+"136gjK"},
-      {img:P+"/ASUS/AU/export-22-06-26/ASUS_ExpertBook_Ultra_EDM_EndUser_640px_Synnex_02.jpg"},
-      {img:P+"/ASUS/AU/export-22-06-26/ASUS_ExpertBook_Ultra_EDM_EndUser_640px_Synnex_03.jpg"},
-      {img:P+"/ASUS/AU/export-22-06-26/ASUS_ExpertBook_Ultra_EDM_EndUser_640px_Synnex_04.jpg"},
-      {img:P+"/ASUS/AU/export-22-06-26/ASUS_ExpertBook_Ultra_EDM_EndUser_640px_Synnex_05.jpg", href:AU+"136gjK"}
-    ], cta:{label:"Shop ExpertBook Ultra", href:AU+"136gjK"} }
-  },
-  {
-    vendor:"Jamf", title:"AI Governance on Mac: A Practical Guide for IT & Security Teams",
-    date:"2026-06-19", cat:"Incentive", emoji:"🍎",
-    deal:"🏆 Top net-new Jamf partner wins VIP F1 Singapore GP 2026 · campaign to 31 Aug",
-    img:P+"/Jamf/export-18-06-26/jamf-edm-18-06-26_01.png",
-    email:{ blocks:[
-      {img:P+"/Jamf/export-18-06-26/jamf-edm-18-06-26_01.png", href:JM+"njK"},
-      {img:P+"/Jamf/export-18-06-26/jamf-edm-18-06-26_02.png", href:JM+"njK"}
-    ], cta:{label:"View program details", href:JM+"lk8"} }
   }
 ];
 
 const pitchData = [
+  { // Synnex CSP NRL & NRLW Grand Finals
+    opener:"“Your Microsoft CSP spend could put you in the stands at the NRL and NRLW Grand Finals — same transactions, grand final seats.”",
+    useCase:"Partners transacting Microsoft 365 and Azure through Synnex CSP who want an extra reason to consolidate their cloud billing this quarter.",
+    why:"You're buying the licenses anyway — route them through Synnex CSP and you're in the running for Grand Final tickets, with CSP support on 1300 100 108 and the fresh price drop still applying."
+  },
+  { // Microsoft Jay Chou concert
+    opener:"“Sell Microsoft between now and September and you could be singing along at a Jay Chou concert on Synnex's dime.”",
+    useCase:"Resellers moving Microsoft OEM product who want a memorable incentive on sales they're already making — eligible sales run 1 July to 30 September 2026.",
+    why:"Every eligible Microsoft sale (net of returns) in the promo window counts, and interstate winners get $500pp travel credit for flights and accommodation — a rare money-can't-easily-buy reward for business as usual."
+  },
+  { // HP EliteBook last chance
+    opener:"“The clock's run down on HP EliteBook savings — if your customer's been sitting on a fleet refresh, this week is the week.”",
+    useCase:"Businesses due for a laptop refresh who want premium, AI-capable EliteBook devices — perfect for pulling forward deals that have been ‘next quarter’ for too long.",
+    why:"It's the last chance at the current promo pricing on selected EliteBooks, with free delivery over $700ex, buyback to offset the old fleet, and the HP PSG team on hand for config — urgency plus margin in one pitch."
+  },
   { // Synnex CSP price drop
     opener:"\u201cWhile everyone else is putting prices up, Synnex just dropped its Microsoft CSP pricing \u2014 same licenses, fatter margin, starting today.\u201d",
     useCase:"Partners transacting Microsoft 365 and Azure through CSP who want to widen margin or sharpen pricing to win competitive renewals and new tenants.",
@@ -394,21 +416,6 @@ const pitchData = [
     opener:"“Just sold a Mac? Add a splash of colour and an easy-margin accessory before the customer walks — the Logitech Pop Mouse practically sells itself.”",
     useCase:"An effortless add-on for every Mac, MacBook or iMac sale — great for students, creatives and anyone personalising their setup with colourful, customisable peripherals.",
     why:"Low-friction impulse upsell with healthy attach margin: compact, customisable, Mac-friendly, and free delivery once the basket tips over $700ex makes bundling a no-brainer."
-  },
-  { // Apple MacBook Neo bundle
-    opener:"“What if every MacBook Neo went out the door fully kitted and configured — accessories, protection and White Glove setup — in a single SKU?”",
-    useCase:"Education and fleet customers gearing up for the 2026 school season who want MacBook Neo devices delivered ready-to-deploy with STM cases and configuration done.",
-    why:"One simple order (quote STM-NEOBUNDLE) bundles the MacBook Neo with the STM accessory pack and White Glove config — higher deal value, less admin, and a turnkey rollout for the customer."
-  },
-  { // ASUS ExpertBook Ultra
-    opener:"“What if your customer's next exec laptop was literally the flagship of the industry — AI-ready, premium-built and ready to ship today?”",
-    useCase:"Executives, professionals and power users due for a premium refresh — the ExpertBook Ultra suits anyone who wants top-tier performance and build quality, not just a budget fleet device.",
-    why:"It's ASUS's flagship business laptop: leading performance, on-device AI acceleration and a premium chassis, with free delivery on orders over $700ex to make the upsell easy."
-  },
-  { // Jamf Elevate
-    opener:"“Close net-new Jamf deals before 31 August and your top rep could be watching the F1 Singapore Grand Prix from a VIP suite — worth a conversation?”",
-    useCase:"Resellers selling Apple device management and security into Mac fleets — position Jamf to IT and security teams who need AI governance, compliance and endpoint control on macOS.",
-    why:"Net-new Jamf logo deals (USD $20k+ per rep) qualify for the ANZ incentive, and the top partner wins return flights, accommodation and VIP F1 Vista hospitality at the 2026 Singapore GP — strong margin plus a standout reward."
   }
 ];
 campaigns.forEach((c,i)=>{ c.pitch = pitchData[i]; });
