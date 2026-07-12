@@ -202,7 +202,7 @@
 </div>
 
 <script>
-const today = new Date("2026-07-09");
+const today = new Date("2026-07-13");
 
 const JM="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XEh-RVfjDZo3XPLJFTs5XR8z.xIUPFx132";
 const HP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XAm-RVfjDZo3XPLJFPs5XR8yuxIUPFx132";
@@ -225,7 +225,37 @@ const JAYC="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3F
 const HPEB="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1n2h-RVfjDZo3XPLKnfs5XR-zexIUPFx13I";
 const CSPMAIL="mailto:csp@au.synnex-grp.com?subject=New%20Price%20Drop%20Enquiry";
 
+const TPLMAIL="mailto:chrisp@au.synnex-grp.com;kingy@au.synnex-grp.com?subject=Omada%20Fusion%202.5G%20Gateway";
+const NFL="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1nAi-RVfjDZo3XPMIXbs5XR_z.xIUPFx13M";
+const HPPSGMAIL="mailto:hppsg@au.synnex-grp.com";
+
 const campaigns = [
+  {
+    vendor:"TP-Link", title:"Introducing Omada Fusion 2.5G Gateway — now available at Synnex",
+    date:"2026-07-10", cat:"Networking", emoji:"📶",
+    deal:"🆕 New TP-Link Omada Fusion 2.5G Gateway — high-throughput SDN gateway for growing business networks",
+    img:P+"/TP-Link/tp-link-edm-08-07-26_01.png",
+    email:{ blocks:[
+      {img:P+"/TP-Link/tp-link-edm-08-07-26_01.png", href:TPLMAIL},
+      {img:P+"/TP-Link/tp-link-edm-08-07-26_02.png", href:TPLMAIL},
+      {img:P+"/TP-Link/tp-link-edm-08-07-26_03.png", href:TPLMAIL},
+      {img:P+"/TP-Link/tp-link-edm-08-07-26_04.png", href:TPLMAIL},
+      {img:P+"/TP-Link/tp-link-edm-08-07-26_05.png", href:TPLMAIL}
+    ], cta:{label:"Enquire about the Omada Fusion Gateway", href:TPLMAIL} }
+  },
+  {
+    vendor:"HP", title:"Win the ultimate NFL Game Day Experience",
+    date:"2026-07-10", cat:"Incentive", emoji:"🏈",
+    deal:"🏆 Sell HP and go in the draw for the ultimate NFL Game Day Experience · free delivery over $700ex",
+    img:P+"/HP/export-06-07-26/hp-edm-NFL-06-07-26_01.png",
+    email:{ blocks:[
+      {img:P+"/HP/export-06-07-26/hp-edm-NFL-06-07-26_01.png", href:NFL+"pi8"},
+      {img:P+"/HP/export-06-07-26/hp-edm-NFL-06-07-26_02.png"},
+      {img:P+"/HP/export-06-07-26/hp-edm-NFL-06-07-26_03.png", href:NFL+"pi8"},
+      {img:P+"/HP/export-18-05-26/4.png", href:NFL+"niq"},
+      {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2025/HP-PS/export-10-12-25/support-banner.png", href:HPPSGMAIL}
+    ], cta:{label:"Enter the NFL Game Day draw", href:NFL+"pi8"} }
+  },
   {
     vendor:"Synnex CSP", title:"Win tickets to NRL & NRLW Grand Finals with Synnex CSP",
     date:"2026-07-07", cat:"Incentive", emoji:"🏉",
@@ -297,47 +327,20 @@ const campaigns = [
       {img:P+"/Netgear/export-29-06-26/1.png", href:"mailto:netgear@au.synnex-grp.com"},
       {img:P+"/Netgear/export-29-06-26/2.png", href:"mailto:netgear@au.synnex-grp.com"}
     ], cta:{label:"Enquire about the WBE710", href:"mailto:netgear@au.synnex-grp.com"} }
-  },
-  {
-    vendor:"BitTitan", title:"Last Chance — Buy 1 PowerSyncPro, Get MigrationWiz Free",
-    date:"2026-06-26", cat:"Cloud", emoji:"🔁",
-    deal:"🎁 Buy 1 PowerSyncPro license, get 1 MigrationWiz (UMB) free — up to 50 licenses · ends 30 June 2026",
-    img:P+"/BitTitan/export-26-06-26/hero_01.png",
-    email:{ blocks:[
-      {img:P+"/BitTitan/export-26-06-26/hero_01.png", href:"mailto:licensing@au.synnex-grp.com?subject=BitTitan%20EOFY%20offer"},
-      {img:P+"/BitTitan/export-26-06-26/hero_02.png"},
-      {img:P+"/BitTitan/export-26-06-26/hero_03.png", href:"mailto:licensing@au.synnex-grp.com"},
-      {img:P+"/BitTitan/export-26-06-26/hero_04.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XQl-RVfjDZo3XPLKXfs5XR9zexIUPFx13Ahja"}
-    ], cta:{label:"Claim the EOFY offer", href:"mailto:licensing@au.synnex-grp.com?subject=BitTitan%20EOFY%20offer"} }
-  },
-  {
-    vendor:"Apple", title:"Apple Newsletter | What’s new from WWDC26",
-    date:"2026-06-26", cat:"Devices", emoji:"🍏",
-    deal:"🎁 WWDC26 wrap-up + Apple Refresh bonus offer — Apple Intelligence, Siri AI & the latest devices · free delivery over $700ex",
-    img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_01.png",
-    email:{ blocks:[
-      {img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_01.png"},
-      {img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_02.png", href:AP+"-jiK"},
-      {img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_03.png", href:AP+"-ji8"},
-      {img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_04.png", href:APREFRESH},
-      {img:P+"/Apple/export-24-06-26/apple-edm-newsletter-24-06-26_05.png", href:AP+"6njK"}
-    ], cta:{label:"Enquire about Apple Refresh", href:APREFRESH} }
-  },
-  {
-    vendor:"Synnex CSP", title:"Last chance to win tickets to the ultimate footy games with Synnex CSP",
-    date:"2026-06-25", cat:"Incentive", emoji:"🏉",
-    deal:"🏆 Final call — transact Microsoft CSP through Synnex to win VIP footy game tickets",
-    img:P+"/MS-CSP/export-25-06-26/ms-csp-edm-25-06-26_01.png",
-    email:{ blocks:[
-      {img:P+"/MS-CSP/export-25-06-26/ms-csp-edm-25-06-26_01.png", href:CSP+"-mjq"},
-      {img:P+"/MS-CSP/export-25-06-26/ms-csp-edm-25-06-26_02.png", href:CSP+"-oia"},
-      {img:P+"/MS-CSP/export-25-06-26/ms-csp-edm-25-06-26_03.png", href:CSP+"Ajiq"},
-      {img:P+"/MS-CSP/export-25-06-26/ms-csp-edm-25-06-26_04.png", href:CSP+"-oiq"}
-    ], cta:{label:"See incentive details", href:CSP+"-mj8"} }
   }
 ];
 
 const pitchData = [
+  { // TP-Link Omada Fusion 2.5G Gateway
+    opener:"“If your customer's network is bursting at the seams, the new Omada Fusion 2.5G Gateway is the multi-gig upgrade that grows with them.”",
+    useCase:"SMBs, retail and multi-site businesses moving to multi-gig internet who need a centrally-managed SDN gateway with room to scale their Omada network.",
+    why:"It's brand new to Synnex, so you're first to market with a 2.5G gateway that slots straight into the Omada ecosystem — one cloud controller for gateway, switches and access points, an easy add-on to any network refresh quote. Talk to Chris or King on the TP-Link team."
+  },
+  { // HP NFL Game Day Experience
+    opener:"“Sell the HP you're already quoting and your customer could be watching the NFL live — same deals, a bucket-list reward on top.”",
+    useCase:"Resellers moving HP devices who want a standout incentive to bring deals forward and lift attach on a fleet refresh they're already working.",
+    why:"Every eligible HP sale puts you in the draw for the ultimate NFL Game Day Experience, with free delivery over $700ex, buyback to offset the old fleet and the HP PSG team on hand for config — a money-can't-buy hook on business as usual."
+  },
   { // Synnex CSP NRL & NRLW Grand Finals
     opener:"“Your Microsoft CSP spend could put you in the stands at the NRL and NRLW Grand Finals — same transactions, grand final seats.”",
     useCase:"Partners transacting Microsoft 365 and Azure through Synnex CSP who want an extra reason to consolidate their cloud billing this quarter.",
@@ -367,21 +370,6 @@ const pitchData = [
     opener:"“Your customer's WiFi was built for last year's device count — the NETGEAR WBE710 is the WiFi 7 upgrade that finally keeps up.”",
     useCase:"Businesses, schools and venues with dense, high-traffic wireless — lots of laptops, phones and IoT fighting for airtime — that need reliable, high-capacity coverage.",
     why:"Tri-band WiFi 7 (BE19000) delivers dramatically more speed and capacity for crowded networks, so it's an easy upgrade pitch on any access-point refresh — with free delivery once the order tips over $700ex."
-  },
-  { // BitTitan PowerSyncPro EOFY
-    opener:"“Got a tenant migration on the horizon? Buy the PowerSyncPro license you already need before 30 June and the MigrationWiz bundle is free.”",
-    useCase:"MSPs and partners running Microsoft 365, Active Directory or tenant-to-tenant migrations — DirSync and Migration Agent work plus the Universal Migration Bundle to move mailboxes and data.",
-    why:"Buy one PowerSyncPro license and get one MigrationWiz UMB free (up to 50 licenses), but only until 30 June and only for partners new to PowerSyncPro in the last 6 months — real EOFY savings on migration tooling you'd buy anyway."
-  },
-  { // Apple WWDC26 Newsletter
-    opener:"“Your Apple customers just watched WWDC26 — strike while the hype is hot and turn the buzz into refresh deals.”",
-    useCase:"Apple-focused resellers and their business and education customers who want the post-WWDC26 rundown — Apple Intelligence, Siri AI and the latest devices — plus the Apple Refresh bonus offer to drive upgrades.",
-    why:"A ready-made talking point for every Apple account: the newsletter packages the WWDC26 announcements alongside the Apple Refresh + bonus offer, so you can convert interest into upgrade and trade-in deals, with free delivery over $700ex."
-  },
-  { // Synnex CSP footy competition
-    opener:"“Run your Microsoft CSP through Synnex before the window shuts and your team could be at the footy in a VIP box — but this is the last chance to enter.”",
-    useCase:"Partners selling Microsoft 365 and Azure who want extra reason to consolidate their cloud transactions through Synnex CSP this period.",
-    why:"It's the final call on the incentive: route eligible Microsoft CSP business through Synnex to go in the draw for VIP tickets to the ultimate footy games — the same deals you're already doing, plus a standout reward and CSP support on 1300 100 108."
   }
 ];
 campaigns.forEach((c,i)=>{ c.pitch = pitchData[i]; });
