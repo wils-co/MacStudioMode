@@ -202,7 +202,7 @@
 </div>
 
 <script>
-const today = new Date("2026-07-13");
+const today = new Date("2026-07-14");
 
 const JM="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XEh-RVfjDZo3XPLJFTs5XR8z.xIUPFx132";
 const HP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XAm-RVfjDZo3XPLJFPs5XR8yuxIUPFx132";
@@ -229,7 +229,27 @@ const TPLMAIL="mailto:chrisp@au.synnex-grp.com;kingy@au.synnex-grp.com?subject=O
 const NFL="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1nAi-RVfjDZo3XPMIXbs5XR_z.xIUPFx13M";
 const HPPSGMAIL="mailto:hppsg@au.synnex-grp.com";
 
+const POLYH="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1nIn-RVfjDZo3XPMInbs5XR.yuxIUPFx13Ukiq";
+const POLY2="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1nIn-RVfjDZo3XPMInbs5XR.yuxIUPFx13Ukj8";
+const POLYSUP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1nIn-RVfjDZo3XPMInbs5XR.yuxIUPFx13Uij8";
+const POLYMAIL="mailto:hppsg@au.synnex-grp.com?subject=HP%20Poly%20Focus%206%20Series%20Enquiry";
+
 const campaigns = [
+  {
+    vendor:"HP Poly", title:"The new HP Poly Focus 6 Series has arrived",
+    date:"2026-07-13", cat:"AV & Collab", emoji:"🎧",
+    deal:"🆕 New HP Poly Focus 6 Series headsets — Acoustic Fence 2.0 noise reduction & up to 30hrs talk time · free delivery over $700ex",
+    img:P+"/HP-POLY/export-09-07-26/Poly-eDM-09-07-26_01.png",
+    email:{ blocks:[
+      {img:P+"/HP-POLY/export-09-07-26/Poly-eDM-09-07-26_01.png", href:POLYH},
+      {img:P+"/HP-POLY/export-09-07-26/Poly-eDM-09-07-26_02.png", href:POLY2},
+      {img:P+"/HP-POLY/export-09-07-26/Poly-eDM-09-07-26_03.png"},
+      {img:P+"/HP-POLY/export-09-07-26/Poly-eDM-09-07-26_04.png"},
+      {img:P+"/HP-POLY/export-09-07-26/Poly-eDM-09-07-26_05.png", href:POLYH},
+      {img:P+"/HP-POLY/export-09-07-26/Poly-eDM-09-07-26_06.png"},
+      {img:P+"/HP/export-18-05-26/4.png", href:POLYSUP}
+    ], cta:{label:"Explore the Poly Focus 6 Series", href:POLYH} }
+  },
   {
     vendor:"TP-Link", title:"Introducing Omada Fusion 2.5G Gateway — now available at Synnex",
     date:"2026-07-10", cat:"Networking", emoji:"📶",
@@ -317,20 +337,15 @@ const campaigns = [
       {img:P+"/Maxhub/export-01-07-26/pic_5.png"},
       {img:P+"/Maxhub/export-01-07-26/pic_6.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1nyg-RVfjDZo3XPLKnHs5XR-y.xIUPFx13EgiK"}
     ], cta:{label:"Enquire with the MAXHUB team", href:"mailto:curtish@au.synnex-grp.com?subject=MAXHUB%20Education%20Solutions%20Enquiry"} }
-  },
-  {
-    vendor:"NETGEAR", title:"WiFi 7 just got better with the NETGEAR WBE710",
-    date:"2026-06-29", cat:"Networking", emoji:"📡",
-    deal:"🆕 NETGEAR WBE710 tri-band WiFi 7 access point — next-gen speed & capacity for dense business networks · free delivery over $700ex",
-    img:P+"/Netgear/export-29-06-26/1.png",
-    email:{ blocks:[
-      {img:P+"/Netgear/export-29-06-26/1.png", href:"mailto:netgear@au.synnex-grp.com"},
-      {img:P+"/Netgear/export-29-06-26/2.png", href:"mailto:netgear@au.synnex-grp.com"}
-    ], cta:{label:"Enquire about the WBE710", href:"mailto:netgear@au.synnex-grp.com"} }
   }
 ];
 
 const pitchData = [
+  { // HP Poly Focus 6 Series
+    opener:"“If your customer lives on Teams and Zoom, the new Poly Focus 6 Series is the headset upgrade that finally silences the open-plan office.”",
+    useCase:"Hybrid and contact-centre workers, hot-desk fleets and any customer refreshing headsets for all-day calls in noisy, open-plan spaces.",
+    why:"It's brand new to Synnex, so you're first to market with Acoustic Fence 2.0 noise reduction, active noise cancellation and up to 30 hours of talk time — an easy attach on any device or UC refresh, with free delivery over $700ex, buyback on old kit and the HP team on hand."
+  },
   { // TP-Link Omada Fusion 2.5G Gateway
     opener:"“If your customer's network is bursting at the seams, the new Omada Fusion 2.5G Gateway is the multi-gig upgrade that grows with them.”",
     useCase:"SMBs, retail and multi-site businesses moving to multi-gig internet who need a centrally-managed SDN gateway with room to scale their Omada network.",
@@ -365,11 +380,6 @@ const pitchData = [
     opener:"\u201cSchool budgets are tight \u2014 MAXHUB gets interactive panels into classrooms without blowing the AV line of the budget.\u201d",
     useCase:"Schools and education customers refreshing classrooms or meeting spaces with interactive flat panels, cameras and collaboration AV on a constrained budget.",
     why:"MAXHUB delivers the interactive-panel experience of premium brands at education-friendly pricing, so you can quote a full room \u2014 panel, camera, audio \u2014 and still come in under budget while keeping healthy margin."
-  },
-  { // NETGEAR WBE710 WiFi 7
-    opener:"“Your customer's WiFi was built for last year's device count — the NETGEAR WBE710 is the WiFi 7 upgrade that finally keeps up.”",
-    useCase:"Businesses, schools and venues with dense, high-traffic wireless — lots of laptops, phones and IoT fighting for airtime — that need reliable, high-capacity coverage.",
-    why:"Tri-band WiFi 7 (BE19000) delivers dramatically more speed and capacity for crowded networks, so it's an easy upgrade pitch on any access-point refresh — with free delivery once the order tips over $700ex."
   }
 ];
 campaigns.forEach((c,i)=>{ c.pitch = pitchData[i]; });
