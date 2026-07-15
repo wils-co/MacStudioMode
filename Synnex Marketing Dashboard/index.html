@@ -202,7 +202,7 @@
 </div>
 
 <script>
-const today = new Date("2026-07-14");
+const today = new Date("2026-07-15");
 
 const JM="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XEh-RVfjDZo3XPLJFTs5XR8z.xIUPFx132";
 const HP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1XAm-RVfjDZo3XPLJFPs5XR8yuxIUPFx132";
@@ -234,7 +234,18 @@ const POLY2="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3
 const POLYSUP="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1nIn-RVfjDZo3XPMInbs5XR.yuxIUPFx13Uij8";
 const POLYMAIL="mailto:hppsg@au.synnex-grp.com?subject=HP%20Poly%20Focus%206%20Series%20Enquiry";
 
+const SURF="https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr1nMm-RVfjDZo3XPMInTs5XR.yOxIUPFx13U";
+
 const campaigns = [
+  {
+    vendor:"Microsoft Surface", title:"Score tickets to the Guns N’ Roses concert with Microsoft Surface",
+    date:"2026-07-15", cat:"Incentive", emoji:"🎸",
+    deal:"🏆 Sell Microsoft Surface and go in the draw for Guns N’ Roses concert tickets · eligible sales 1 Jul–31 Oct 2026 · $500pp travel credit for interstate winners",
+    img:P+"/MS-surface/export-09-07-26/gnr-edm-surface-snapdragon-09-07-26.jpg",
+    email:{ blocks:[
+      {img:P+"/MS-surface/export-09-07-26/gnr-edm-surface-snapdragon-09-07-26.jpg", href:SURF+"hia"}
+    ], cta:{label:"See incentive details", href:SURF+"hia"} }
+  },
   {
     vendor:"HP Poly", title:"The new HP Poly Focus 6 Series has arrived",
     date:"2026-07-13", cat:"AV & Collab", emoji:"🎧",
@@ -341,6 +352,11 @@ const campaigns = [
 ];
 
 const pitchData = [
+  { // Microsoft Surface Guns N' Roses
+    opener:"“Sell the Surface devices you’re already quoting between now and October and your customer could be front row at Guns N’ Roses.”",
+    useCase:"Resellers moving Microsoft Surface — including the new Snapdragon-powered Copilot+ PCs — who want a headline incentive to pull fleet deals forward.",
+    why:"Every eligible Surface sale from 1 July to 31 October 2026 (net of returns) goes in the draw for Guns N’ Roses concert tickets, and interstate winners get $500 per person in travel credit for flights and accommodation — a money-can’t-buy reward on sales you’re already making."
+  },
   { // HP Poly Focus 6 Series
     opener:"“If your customer lives on Teams and Zoom, the new Poly Focus 6 Series is the headset upgrade that finally silences the open-plan office.”",
     useCase:"Hybrid and contact-centre workers, hot-desk fleets and any customer refreshing headsets for all-day calls in noisy, open-plan spaces.",
