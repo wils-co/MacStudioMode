@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Friday 17 July 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Thursday 23 July 2026</div>
     </div>
   </header>
 
@@ -69,6 +69,8 @@
 
 <script>
 const campaigns = [
+  {vendor:"MAXHUB", title:"Spring to Guangzhou 2026 with MAXHUB", date:"2026-07-20", cat:"Incentive", emoji:"✈️", deal:"🏆 Sell MAXHUB & win a trip to Guangzhou 2026 · Better Together promo · T&Cs apply",
+   img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Maxhub/export-14-07-26/Sprint-to-Guangzhou-2026_01.png"},
   {vendor:"Microsoft Surface", title:"Score tickets to the Guns N’ Roses concert with Microsoft Surface", date:"2026-07-15", cat:"Incentive", emoji:"🎸", deal:"🏆 Sell Surface & win Guns N’ Roses tickets + $500 travel credit · promo runs 1 Jul–31 Oct",
    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-surface/export-09-07-26/gnr-edm-surface-snapdragon-09-07-26.jpg"},
   {vendor:"HP Poly", title:"The new HP Poly Focus 6 Series has arrived", date:"2026-07-13", cat:"AV & Collab", emoji:"🎧", deal:"🎁 Acoustic Fence 2.0 · up to 30hrs talk time · free delivery over $700ex",
@@ -81,7 +83,7 @@ const grid=document.getElementById('grid'), chipsEl=document.getElementById('chi
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-07-17");
+const today=new Date("2026-07-23");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
