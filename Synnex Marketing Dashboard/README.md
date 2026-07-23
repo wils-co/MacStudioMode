@@ -1,59 +1,83 @@
-# Synnex Marketing Dashboard
+# Publishing the Synnex Marketing Dashboard to GitHub
 
-An automated, self-updating dashboard that turns a noisy work inbox into a clean, sales-ready view of every live vendor marketing campaign — built and run entirely through conversational AI (Claude, in Cowork mode), with zero hand-written code from me.
+This guide sets up the dashboard so your team can view it at a live URL, and so it
+**auto-pushes to GitHub every time the 9:30am refresh updates it**.
 
-🔗 **Live site:** deployed via Vercel from this repo
-🤖 **Refreshes itself:** every day at 10:00am, hands-free
-
----
-
-## The problem
-
-As a Synnex Australia account manager, my Gmail receives a constant stream of forwarded work email: pricelists, stock-on-hand reports, daily allocation/inventory reports — and, mixed in among them, the actual **marketing campaigns** (vendor promos, EOFY deals, product launches, cloud offers) that I want in front of customers.
-
-The signal I care about is buried in the noise. Manually it meant scrolling, opening each EDM, working out which ones still mattered, and trying to remember the offer when a customer called.
-
-## What this project achieves (workflow perspective)
-
-This is an end-to-end automation that runs unattended. Each morning the pipeline:
-
-1. **Reads the inbox** — searches Gmail for mail from the Synnex domain in the last 7 days.
-2. **Separates signal from noise** — keeps only genuine marketing material from *Team Synnex* (`marketing@`) and *Synnex Cloud* (`cloud@`), and discards every pricelist, SOH report and allocation/inventory report.
-3. **Extracts the campaign** — pulls vendor, headline, offer details, validity dates and the EDM hero images and tracking links straight out of each email's HTML.
-4. **Rebuilds the dashboard** — drops new campaigns into a fun, filterable HTML dashboard, ages out anything older than 14 days, and refreshes the "last updated" date.
-5. **Makes it actionable** — every card opens the full original email *with working links* (so "Learn more", "View Guide", etc. still work), and a one-click **One Line Sales Pitch** that gives a conversation-opener, the business use case, and a why-buy reason for each product.
-6. **Publishes itself** — commits the updated dashboard into this repo and pushes to GitHub, which triggers an automatic Vercel deploy. The live page is current before the work day starts.
-
-The result: a static problem (a flooded inbox) became a living product (a self-publishing web app) without me writing or maintaining any code.
-
-## How it was built
-
-- **Claude in Cowork mode** — the whole thing was specified in plain English, iteratively: *"pull the marketing emails"*, *"make it fun"*, *"I don't like dark"*, *"let me click the deal and have the links work"*, *"add a one-line sales pitch"*, *"push to GitHub daily"*.
-- **Gmail connector** — read-only access to search and read the forwarded emails.
-- **Scheduled task** — a single recurring job (10:00am daily) runs the full pull → build → publish pipeline with no human present.
-- **Plain HTML/CSS/JS** — the dashboard is one self-contained file. No build step, no framework, no dependencies.
-- **GitHub + Vercel** — Git for versioning, Vercel for zero-config hosting and auto-deploy on every push.
-
-## Features
-
-- **Light, filterable card grid** — filter by category (Storage, Cloud, AV & Collab, Devices, EOFY Deals, Incentive).
-- **At-a-glance stats** — active campaigns, how many carry an offer, vendor count, and what's new today.
-- **Open email** — view the full EDM in a popup with the original, working campaign links.
-- **One Line Sales Pitch** — an instant opener + business use case + why-buy for each product.
-- **Auto-ageing** — campaigns older than 14 days drop off automatically.
-
-## What's in this folder
-
-| File | Purpose |
-|------|---------|
-| `index.html` | The self-contained marketing dashboard |
-| `README.md` | This file |
-
-## Notes
-
-- The dashboard only ever contains **marketing material**. Pricelists, stock reports, customer lists and account credentials live in a separate private workspace and are never published here.
-- Campaign links are the original Synnex marketing tracking links, exactly as they arrived in the inbox.
+Confirmed working: git is available in the refresh environment and can reach GitHub,
+so the automatic push is genuinely possible (no manual upload needed after setup).
 
 ---
 
-*Part of [MacStudioMode](https://github.com/wils-co/MacStudioMode) — a running record of what I build with AI.*
+## Part A — One-time GitHub setup (you do this)
+
+1. **Create an empty repo** at github.com — e.g. `synnex-dashboard`.
+   Don't add a README or any files (keep it empty so the first push is clean).
+
+2. **Create a Personal Access Token** so the scheduled task can push without you logging in:
+   - GitHub → Settings → Developer settings → **Fine-grained tokens** → **Generate new token**
+   - **Repository access:** only the `synnex-dashboard` repo
+   - **Permissions:** Contents → **Read and write**
+   - Set an expiry you're comfortable with, generate, and **copy the token** (starts with `github_pat_…`)
+   - The single-repo, fine-grained scope means a leaked token can only affect this one dashboard.
+
+3. **Enable GitHub Pages:**
+   - Repo → Settings → **Pages**
+   - Source: **Deploy from a branch** → branch `main` → folder `/ (root)` → Save
+   - After the first push, your live link will be:
+     `https://<your-username>.github.io/synnex-dashboard/`
+
+---
+
+## Part B — Wire up the folder (one-time)
+
+Run these in the `Synnex Marketing` folder. The file is renamed to `index.html`
+because GitHub Pages serves that automatically.
+
+```bash
+cd "Synnex Marketing"
+git init -b main
+git mv Marketing_Dashboard.html index.html
+git remote add origin https://<TOKEN>@github.com/<your-username>/synnex-dashboard.git
+git add -A
+git commit -m "Initial dashboard"
+git push -u origin main
+```
+
+- `<TOKEN>` = the token from Part A; `<your-username>` = your GitHub username.
+- The token is stored in the folder's `.git/config` on your machine so future pushes
+  are automatic. It's plaintext there — fine for your own computer, just don't share the folder.
+
+---
+
+## Part C — Auto-push on every refresh
+
+Add this as the **final step** of the 9:30am scheduled task, so right after it updates
+the dashboard it commits and pushes:
+
+```bash
+cd "Synnex Marketing"
+git add -A
+git diff --cached --quiet || (git commit -m "Auto-refresh $(date +%F)" && git push)
+```
+
+- The `git diff --cached --quiet ||` guard means it **only commits/pushes when something
+  actually changed** — quiet days won't create empty commits.
+- The live Pages site updates within ~1 minute of each push.
+
+> Note: because the file is renamed to `index.html`, the scheduled task and any references
+> should point at `index.html` instead of `Marketing_Dashboard.html`.
+
+---
+
+## Updating later
+
+After setup, you never touch GitHub manually — each refresh pushes itself. To change the
+design or content by hand, edit `index.html`, then run the Part C commands (or just let the
+next scheduled run push it).
+
+## Alternatives (no GitHub)
+
+- **Netlify Drop** (https://app.netlify.com/drop): drag the HTML file in, get an instant
+  public link, no account needed. Re-drag to update.
+- **Email the file**: it's fully self-contained and opens in any browser — but won't
+  auto-update.
