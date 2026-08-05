@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Friday 31 July 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Thursday 6 August 2026</div>
     </div>
   </header>
 
@@ -74,16 +74,14 @@ const campaigns = [
   {vendor:"MAXHUB", title:"Bring AI-powered collaboration to more customer projects", date:"2026-07-29", cat:"AV & Collab", emoji:"🤝", deal:"🎁 Better Together with MAXHUB — AI-powered collaboration displays to win more projects · T&Cs apply",
    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Maxhub/export-29-07-26/maxhub-edm-29-07-26_01.jpg"},
   {vendor:"Samsung", title:"Samsung T7 MicroSD Card — ready for everything", date:"2026-07-27", cat:"Storage", emoji:"💾", deal:"💸 High-speed T7 microSD range · free delivery over $700ex · T&Cs apply",
-   img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Samsung/export-24-07-26/Samsung-edm-24-07-26.jpg"},
-  {vendor:"MAXHUB", title:"Spring to Guangzhou 2026 with MAXHUB", date:"2026-07-20", cat:"Incentive", emoji:"✈️", deal:"🏆 Sell MAXHUB & win a trip to Guangzhou 2026 · Better Together promo · T&Cs apply",
-   img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Maxhub/export-14-07-26/Sprint-to-Guangzhou-2026_01.png"}
+   img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Samsung/export-24-07-26/Samsung-edm-24-07-26.jpg"}
 ];
 
 const grid=document.getElementById('grid'), chipsEl=document.getElementById('chips'), empty=document.getElementById('empty');
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-07-31");
+const today=new Date("2026-08-06");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
