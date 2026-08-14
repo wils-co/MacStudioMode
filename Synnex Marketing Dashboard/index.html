@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Thursday 13 August 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Friday 14 August 2026</div>
     </div>
   </header>
 
@@ -69,15 +69,13 @@
 
 <script>
 const campaigns = [
-  {vendor:"HP", title:"Built for business — HP LaserJet Pro MFP 4100 Series", date:"2026-07-30", cat:"Devices", emoji:"🖨️", deal:"🎁 New HP LaserJet Pro MFP 4100 Series — built for business · free delivery over $700ex · T&Cs apply",
-   img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-IPG-28-07-26/hp-ipg-edm-28-07-26_01.jpg"}
 ];
 
 const grid=document.getElementById('grid'), chipsEl=document.getElementById('chips'), empty=document.getElementById('empty');
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-08-13");
+const today=new Date("2026-08-14");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
