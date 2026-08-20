@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Wednesday 19 August 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Friday 21 August 2026</div>
     </div>
   </header>
 
@@ -69,6 +69,16 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"Synnex CSP",
+    title:"Accelerate your AI journey with Synnex CSP",
+    date:"2026-08-20",
+    cat:"Cloud",
+    emoji:"🤖",
+    deal:"🚀 Build your Microsoft cloud & AI practice with Synnex CSP",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-20-08-26/ms-csp-20-08-26_01.png",
+    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2X-i-RVfjDZo3XTDInLs5XV9zOxIUPFx2HQliq"
+  },
   {
     vendor:"Apple",
     title:"Apple Newsletter — August 2026",
@@ -95,7 +105,7 @@ const grid=document.getElementById('grid'), chipsEl=document.getElementById('chi
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-08-19");
+const today=new Date("2026-08-21");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
