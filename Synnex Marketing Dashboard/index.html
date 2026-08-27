@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Monday 24 August 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Thursday 27 August 2026</div>
     </div>
   </header>
 
@@ -69,6 +69,26 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"HP",
+    title:"HP G1 Notebook Runout — Special Deal Ends Soon",
+    date:"2026-08-26",
+    cat:"EOFY Deals",
+    emoji:"💻",
+    deal:"💸 G1 notebook runout pricing — ends soon! + Free delivery over $700ex + Buyback trade-in",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-25-08-26/hp-edm-25-08-26.png",
+    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2n2k-RVfjDZo3XTDI3js5XV-0OxIUPFx2Xyhk8"
+  },
+  {
+    vendor:"Samsung",
+    title:"Performance that matches your expertise",
+    date:"2026-08-25",
+    cat:"Storage",
+    emoji:"💾",
+    deal:"🎁 Samsung performance range + Free delivery over $700ex + Buyback trade-in",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Samsung/export-25-08-26/1.png",
+    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2XUp-RVfjDZo3XTDI3fs5XV-0.xIUPFx2HUojK"
+  },
   {
     vendor:"Jamf",
     title:"Modern Management. Simplified Workflows. Secure by Default.",
@@ -115,7 +135,7 @@ const grid=document.getElementById('grid'), chipsEl=document.getElementById('chi
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-08-24");
+const today=new Date("2026-08-27");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
