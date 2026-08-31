@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Friday 28 August 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Monday 31 August 2026</div>
     </div>
   </header>
 
@@ -69,6 +69,26 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"ASUS",
+    title:"Double your rewards with ASUS Deal Registration",
+    date:"2026-08-31",
+    cat:"Incentive",
+    emoji:"🎯",
+    deal:"🏆 Register your ASUS deals and double your rewards + Free delivery over $700ex",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/ASUS/export-31-08-26/asus-edm-31-08-26_01.png",
+    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2nMm-RVfjDZo3XTDIFTs5XV_zOxIUPFx2X2ikK"
+  },
+  {
+    vendor:"HP",
+    title:"The right HP printer for the way you work",
+    date:"2026-08-28",
+    cat:"Devices",
+    emoji:"🖨️",
+    deal:"🎁 Find the right HP printer for your workflow + Free delivery over $700ex + Buyback trade-in",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-28-08-26/hp-edm-28-08-26_01.png",
+    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2nIi-RVfjDZo3XTDIFDs5XV_yOxIUPFx2X2iia"
+  },
   {
     vendor:"HP",
     title:"HP G1 Notebook Runout — Special Deal Ends Soon",
@@ -135,7 +155,7 @@ const grid=document.getElementById('grid'), chipsEl=document.getElementById('chi
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-08-28");
+const today=new Date("2026-08-31");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
