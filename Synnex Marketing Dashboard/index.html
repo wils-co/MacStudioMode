@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Tuesday 1 September 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Thursday 3 September 2026</div>
     </div>
   </header>
 
@@ -69,6 +69,16 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"MAXHUB",
+    title:"Upgrade your meeting spaces with MAXHUB and save up to 30%",
+    date:"2026-09-02",
+    cat:"AV & Collab",
+    emoji:"📺",
+    deal:"💸 Save up to 30% on Teams Room trade-in — valid 1 Sep–31 Dec 2026 or while stock lasts",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Maxhub/export-01-09-26/MAXHUB-EDM-HERO.png",
+    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr236j-RVfjDZo3XTDIFPs5XV_z.xIUPFx2X2hja"
+  },
   {
     vendor:"ASUS",
     title:"Double your rewards with ASUS Deal Registration",
@@ -129,33 +139,13 @@ const campaigns = [
     img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-20-08-26/ms-csp-20-08-26_01.png",
     href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2X-i-RVfjDZo3XTDInLs5XV9zOxIUPFx2HQliq"
   },
-  {
-    vendor:"Apple",
-    title:"Apple Newsletter — August 2026",
-    date:"2026-08-18",
-    cat:"Devices",
-    emoji:"🍎",
-    deal:"🎁 Free delivery over $700ex + Buyback trade-in on outdated devices",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Apple/export-18-08-26/apple-edm-18-08-26_02.jpg",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2HUj-RVfjDZo3XPMKnTs5XV70.xIUPFx2HInk8"
-  },
-  {
-    vendor:"HP",
-    title:"Win the ultimate NFL Game Day Experience",
-    date:"2026-08-18",
-    cat:"Incentive",
-    emoji:"🏈",
-    deal:"🏆 Buy HP & go in the draw to win an NFL Game Day experience",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-06-07-26/hp-edm-NFL-06-07-26_01.png",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy.0eRr1HBzitfyjfYyXIHJJXeh6O4tNNxFV.h0PbKRia"
-  },
 ];
 
 const grid=document.getElementById('grid'), chipsEl=document.getElementById('chips'), empty=document.getElementById('empty');
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-09-01");
+const today=new Date("2026-09-03");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
