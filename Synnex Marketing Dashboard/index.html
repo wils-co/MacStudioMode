@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Thursday 3 September 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Sunday 6 September 2026</div>
     </div>
   </header>
 
@@ -69,6 +69,26 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"ASUS",
+    title:"Meet the ASUS ExpertBook Ultra — The Flagship of the Industry",
+    date:"2026-09-04",
+    cat:"Devices",
+    emoji:"💻",
+    deal:"🎁 Flagship ExpertBook Ultra for business + Free delivery over $700ex",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/ASUS/export-03-09-26/ASUS_ExpertBook_Ultra_EDM_EndUser_640px_Synnex_01.jpg",
+    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr23Io-RVfjDZo3XTDJXPs5XV.yuxIUPFx2X-hjq"
+  },
+  {
+    vendor:"Synnex",
+    title:"Register for the Synnex Digital Workplace Forum",
+    date:"2026-09-03",
+    cat:"Events",
+    emoji:"🎪",
+    deal:"🗓️ Melbourne · 16 Sep · Marvel Stadium — register now, seats limited!",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Synnex/digital-workplace-forum-2026/edm-3/1.png",
+    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr23Em-RVfjDZo3XTDJXLs5XV.yexOVvFx2X-giK"
+  },
   {
     vendor:"HP",
     title:"HP ProBook G2 + FREE Monitor — Limited Time Only",
@@ -129,33 +149,13 @@ const campaigns = [
     img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Samsung/export-25-08-26/1.png",
     href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2XUp-RVfjDZo3XTDI3fs5XV-0.xIUPFx2HUojK"
   },
-  {
-    vendor:"Jamf",
-    title:"Modern Management. Simplified Workflows. Secure by Default.",
-    date:"2026-08-21",
-    cat:"Security",
-    emoji:"🛡️",
-    deal:"🎁 Free delivery over $700ex + Buyback trade-in · Apple device management, secure by default",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Jamf/export-21-08-26/jamf-edm-21-08-26_01.jpg",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2X-m-RVfjDZo3XTDIXLs5XV80.xIUPFx2HMnjq"
-  },
-  {
-    vendor:"Synnex CSP",
-    title:"Accelerate your AI journey with Synnex CSP",
-    date:"2026-08-20",
-    cat:"Cloud",
-    emoji:"🤖",
-    deal:"🚀 Build your Microsoft cloud & AI practice with Synnex CSP",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-20-08-26/ms-csp-20-08-26_01.png",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2X-i-RVfjDZo3XTDInLs5XV9zOxIUPFx2HQliq"
-  },
 ];
 
 const grid=document.getElementById('grid'), chipsEl=document.getElementById('chips'), empty=document.getElementById('empty');
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-09-03");
+const today=new Date("2026-09-06");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
