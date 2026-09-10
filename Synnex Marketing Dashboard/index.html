@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Wednesday 9 September 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Thursday 10 September 2026</div>
     </div>
   </header>
 
@@ -69,6 +69,16 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"Seagate",
+    title:"Drive your next enterprise opportunity with Seagate Exos",
+    date:"2026-09-10",
+    cat:"Storage",
+    emoji:"💾",
+    deal:"🎁 Enterprise Exos hard drives for data-centre scale + Free delivery over $700ex + Buyback trade-in",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Seagate/export-09-09-26/seagate-edm-09-09-26_01.png",
+    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr3HAk-RVfjDZo3XTDJnbs5XV~yexIUPFx2XAliq"
+  },
   {
     vendor:"Nitro",
     title:"Earn 30% deal reg margin on your first Nitro subscription order",
@@ -139,23 +149,13 @@ const campaigns = [
     img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-28-08-26/hp-edm-28-08-26_01.png",
     href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2nIi-RVfjDZo3XTDIFDs5XV_yOxIUPFx2X2iia"
   },
-  {
-    vendor:"HP",
-    title:"HP G1 Notebook Runout — Special Deal Ends Soon",
-    date:"2026-08-26",
-    cat:"EOFY Deals",
-    emoji:"💻",
-    deal:"💸 G1 notebook runout pricing — ends soon! + Free delivery over $700ex + Buyback trade-in",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-25-08-26/hp-edm-25-08-26.png",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr2n2k-RVfjDZo3XTDI3js5XV-0OxIUPFx2Xyhk8"
-  },
 ];
 
 const grid=document.getElementById('grid'), chipsEl=document.getElementById('chips'), empty=document.getElementById('empty');
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-09-09");
+const today=new Date("2026-09-10");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
