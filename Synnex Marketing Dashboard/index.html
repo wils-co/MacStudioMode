@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Tuesday 15 September 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Wednesday 16 September 2026</div>
     </div>
   </header>
 
@@ -69,6 +69,16 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"ASUS",
+    title:"Exclusive pricing on the ASUS ExpertBook P5 at Synnex",
+    date:"2026-09-15",
+    cat:"Devices",
+    emoji:"💻",
+    deal:"💸 Exclusive Synnex pricing on the ASUS ExpertBook P5 Copilot+ PC + Free delivery over $700ex",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/ASUS/export-14-09-26/ASUS_P5_Synnex_EDM_600pxwide_CoPilot_080926_01.png",
+    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr3X-o-RVfjDZo3XTDJ3Xs5XVAy.xIUPFx2XEjj8"
+  },
   {
     vendor:"HP",
     title:"Got a Dell or Lenovo monitor quote? We’ll beat it with HP.",
@@ -155,7 +165,7 @@ const grid=document.getElementById('grid'), chipsEl=document.getElementById('chi
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-09-15");
+const today=new Date("2026-09-16");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
