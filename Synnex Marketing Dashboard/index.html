@@ -49,7 +49,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Wednesday 16 September 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Thursday 17 September 2026</div>
     </div>
   </header>
 
@@ -149,23 +149,13 @@ const campaigns = [
     img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-03-09-26/hp-edm-03-09-26.jpg",
     href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr23Al-RVfjDZo3XTDJXHs5XV.yOxIUPFx2X6oi8"
   },
-  {
-    vendor:"MAXHUB",
-    title:"Upgrade your meeting spaces with MAXHUB and save up to 30%",
-    date:"2026-09-02",
-    cat:"AV & Collab",
-    emoji:"📺",
-    deal:"💸 Save up to 30% on Teams Room trade-in — valid 1 Sep–31 Dec 2026 or while stock lasts",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Maxhub/export-01-09-26/MAXHUB-EDM-HERO.png",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr236j-RVfjDZo3XTDIFPs5XV_z.xIUPFx2X2hja"
-  },
 ];
 
 const grid=document.getElementById('grid'), chipsEl=document.getElementById('chips'), empty=document.getElementById('empty');
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-09-16");
+const today=new Date("2026-09-17");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
