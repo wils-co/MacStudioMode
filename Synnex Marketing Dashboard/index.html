@@ -38,10 +38,30 @@
   .vendor{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent1)}
   .title{font-size:16px;font-weight:700;line-height:1.35}
   .deal{font-size:13px;color:#b45309;font-weight:600}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:10px;cursor:pointer;font-size:12.5px;font-weight:600;transition:.15s}
+  .btn:hover{border-color:var(--accent2);transform:translateY(-1px)}
+  .btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff;border-color:transparent}
   .meta{margin-top:auto;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;padding-top:8px;border-top:1px solid var(--line)}
   .tag{border:1px solid var(--line);padding:2px 9px;border-radius:999px}
   footer{margin-top:34px;color:var(--muted);font-size:12px;text-align:center}
   .empty{color:var(--muted);text-align:center;padding:40px 0;display:none}
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(17,20,35,.55);backdrop-filter:blur(3px);display:none;align-items:flex-start;justify-content:center;padding:30px 14px;z-index:50;overflow-y:auto}
+  .overlay.open{display:flex}
+  .modal{background:#fff;border-radius:18px;max-width:640px;width:100%;box-shadow:0 30px 60px rgba(0,0,0,.25);overflow:hidden}
+  .mhead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
+  .mhead .t{font-weight:700;font-size:15px}
+  .x{border:none;background:#f1f2f6;border-radius:999px;width:32px;height:32px;cursor:pointer;font-size:16px;flex-shrink:0}
+  .mbody{padding:0}
+  .mbody img{display:block;width:100%;height:auto}
+  .mbody .txt{padding:18px;font-size:14px;line-height:1.6}
+  .mfoot{padding:14px 18px;border-top:1px solid var(--line);display:flex;justify-content:flex-end}
+  .mfoot a{text-decoration:none}
+  .pitch{padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+  .pitch .opener{font-size:18px;font-weight:700;line-height:1.4;background:linear-gradient(90deg,#eef2ff,#fdf2f8);padding:14px 16px;border-radius:12px}
+  .pitch h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent1);margin-bottom:4px}
+  .pitch p{font-size:14px;line-height:1.55}
 </style>
 </head>
 <body>
@@ -49,7 +69,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Friday 18 September 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Saturday 3 October 2026</div>
     </div>
   </header>
 
@@ -67,77 +87,86 @@
   <footer>Source: marketing emails forwarded from Team Synnex &amp; Synnex Cloud · Refreshes 9:30am Mon–Fri</footer>
 </div>
 
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="mhead"><div class="t" id="mTitle"></div><button class="x" id="mClose" aria-label="Close">✕</button></div>
+    <div class="mbody" id="mBody"></div>
+    <div class="mfoot" id="mFoot"></div>
+  </div>
+</div>
+
 <script>
 const campaigns = [
   {
+    vendor:"Microsoft (Synnex CSP)",
+    title:"Unlock accelerated Microsoft Cloud growth with Synnex CSP",
+    date:"2026-10-02",
+    cat:"Cloud",
+    emoji:"☁️",
+    deal:"💸 Extra margin boosters, enablement funding & program support wrapped around core Microsoft Cloud deals",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-30-09-26/hero.jpg",
+    email:{
+      blocks:[
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-30-09-26/hero.jpg", href:""},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-30-09-26/sec-2.jpg", href:""},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-30-09-26/sec-3_01.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xym-RVfjDZo3XTDKnHs6pz6zOxIUPFx2XQkja"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-30-09-26/sec-3_02.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xym-RVfjDZo3XTDKnHs6pz6zOxIUPFx2XQmiK"}
+      ],
+      cta:{label:"View CSP incentives →", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xym-RVfjDZo3XTDKnHs6pz6zOxIUPFx2XQkja"}
+    }
+  },
+  {
     vendor:"Apple",
-    title:"Apple Newsletter — September 2026",
-    date:"2026-09-18",
-    cat:"Devices",
-    emoji:"🍎",
-    deal:"🎁 Your monthly source of Apple updates, insights & offers — Free delivery over $700ex + Buyback trade-in",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Apple/export-17-09-26/apple-edm-newwsletter-16-09-26_01.png",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Hyg-RVfjDZo3XTDJFTs5XVA0.xIUPFx2XIiia"
+    title:"Turn New to Mac opportunities into your chance to see Bruno Mars live",
+    date:"2026-10-01",
+    cat:"Incentive",
+    emoji:"🎤",
+    deal:"🏆 Register, close and accelerate your points on New to Mac deals for a chance to see Bruno Mars live + Free delivery over $700ex + Buyback",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Apple/export-24-09-26/1.png",
+    email:{
+      blocks:[
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Apple/export-24-09-26/1.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xyk-RVfjDZo3XTDJFfs6pz5yOxIUPFx2XMgia"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Apple/export-24-09-26/2.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xyk-RVfjDZo3XTDJFfs6pz5yOxIUPFx2XMgia"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Apple/export-24-09-26/3.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xyk-RVfjDZo3XTDJFfs6pz5yOxIUPFx2XMgia"}
+      ],
+      cta:{label:"Register & see T&Cs →", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xyk-RVfjDZo3XTDJFfs6pz5yOxIUPFx2XMgia"}
+    }
   },
   {
     vendor:"ASUS",
-    title:"Exclusive pricing on the ASUS ExpertBook P5 at Synnex",
-    date:"2026-09-15",
-    cat:"Devices",
-    emoji:"💻",
-    deal:"💸 Exclusive Synnex pricing on the ASUS ExpertBook P5 Copilot+ PC + Free delivery over $700ex",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/ASUS/export-14-09-26/ASUS_P5_Synnex_EDM_600pxwide_CoPilot_080926_01.png",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr3X-o-RVfjDZo3XTDJ3Xs5XVAy.xIUPFx2XEjj8"
-  },
-  {
-    vendor:"HP",
-    title:"Got a Dell or Lenovo monitor quote? We’ll beat it with HP.",
-    date:"2026-09-15",
+    title:"Give your next ASUS ExpertCentre deal a boost with Synnex",
+    date:"2026-09-28",
     cat:"Devices",
     emoji:"🖥️",
-    deal:"💸 Bring your Dell or Lenovo commercial monitor quote to Synnex and they’ll beat it with an HP solution — net-new/acquisition deals only, order by 31 Oct 2026 + Free delivery over $700ex",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-07-09-26/hp-edm-07-09-26_01.jpg",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr3Xym-RVfjDZo3XTDJnXs5XV~yOxIUPFx2XAkja"
+    deal:"💸 Synnex deal boost on ASUS ExpertCentre business desktops + Free delivery over $700ex + TaaS monthly billing",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/ASUS/export-24-09-26/ASUS-24-09-26_01.jpg",
+    email:{
+      blocks:[
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/ASUS/export-24-09-26/ASUS-24-09-26_01.jpg", href:""},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/ASUS/export-24-09-26/ASUS-24-09-26_02.jpg", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xyi-RVfjDZo3XTDKXHs6pz5zOxIUPFx2XMmi8"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/ASUS/export-24-09-26/ASUS-24-09-26_03.jpg", href:""},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/ASUS/export-24-09-26/ASUS-24-09-26_04.jpg", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xyi-RVfjDZo3XTDKXHs6pz5zOxIUPFx2XMmiK"}
+      ],
+      cta:{label:"Get the ExpertCentre deal →", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xyi-RVfjDZo3XTDKXHs6pz5zOxIUPFx2XMmi8"}
+    }
+  },
+];
+
+const pitchData = [
+  {
+    opener:"“You’re already buying Microsoft 365 and Azure — let’s make sure every licence comes with the funding and support you’re entitled to.”",
+    useCase:"Businesses renewing or growing Microsoft 365, Copilot or Azure subscriptions that want one partner to manage licensing, billing and adoption.",
+    why:"Same Microsoft products, but bought through Synnex CSP they come wrapped in extra incentives and enablement funding — so the customer gets better onboarding and support at no extra cost."
   },
   {
-    vendor:"Microsoft Surface",
-    title:"Score tickets to the Guns N’ Roses concert with Microsoft Surface",
-    date:"2026-09-11",
-    cat:"Incentive",
-    emoji:"🎸",
-    deal:"🏆 Sell Microsoft Surface (Snapdragon) 1 Jul–31 Oct 2026 to score Guns N’ Roses concert tickets — interstate travellers claim $500pp travel credit",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-surface/export-09-07-26/gnr-edm-surface-snapdragon-09-07-26.jpg",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr3HIl-RVfjDZo3XTDJ3Ds5XV~zexIUPFx2XAoja"
+    opener:"“Thinking about moving the team to Mac? Now’s the moment — the switch has never been easier or better supported.”",
+    useCase:"Organisations moving staff from Windows to Mac — creative teams, execs, developers — or standardising new hires on MacBook Air/Pro with managed deployment.",
+    why:"Mac delivers long device life, strong security and low support overhead; trade-in via Buyback offsets the upfront cost and free delivery keeps rollout simple."
   },
   {
-    vendor:"Seagate",
-    title:"Drive your next enterprise opportunity with Seagate Exos",
-    date:"2026-09-10",
-    cat:"Storage",
-    emoji:"💾",
-    deal:"🎁 Enterprise Exos hard drives for data-centre scale + Free delivery over $700ex + Buyback trade-in",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Seagate/export-09-09-26/seagate-edm-09-09-26_01.png",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr3HAk-RVfjDZo3XTDJnbs5XV~yexIUPFx2XAliq"
-  },
-  {
-    vendor:"Nitro",
-    title:"Earn 30% deal reg margin on your first Nitro subscription order",
-    date:"2026-09-08",
-    cat:"Cloud",
-    emoji:"✍️",
-    deal:"🏆 30% deal-reg margin on your first Nitro PDF & e-sign subscription order — via Synnex Cloud",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Nitro/export-24-08-26/Nitro-edm-24-08-26_01.png",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr3H2g-RVfjDZo3XTDInPs5XV9zexIUPFx2HQpjq"
-  },
-  {
-    vendor:"ASUS",
-    title:"Meet the ASUS ExpertBook Ultra — The Flagship of the Industry",
-    date:"2026-09-04",
-    cat:"Devices",
-    emoji:"💻",
-    deal:"🎁 Flagship ExpertBook Ultra for business + Free delivery over $700ex",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/ASUS/export-03-09-26/ASUS_ExpertBook_Ultra_EDM_EndUser_640px_Synnex_01.jpg",
-    href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFr23Io-RVfjDZo3XTDJXPs5XV.yuxIUPFx2X-hjq"
+    opener:"“Need reliable desktops for the office without the premium price tag? ASUS ExpertCentre just got a whole lot sharper.”",
+    useCase:"Office refreshes for front-desk, admin, education and call-centre fleets that need compact, manageable business desktops at scale.",
+    why:"Business-grade build and security at a sharp Synnex-boosted price, with the option to bundle everything into one monthly TaaS bill instead of a big capex hit."
   },
 ];
 
@@ -145,15 +174,15 @@ const grid=document.getElementById('grid'), chipsEl=document.getElementById('chi
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-09-18");
+const today=new Date("2026-10-03");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
 function isHot(d){const diff=(today-new Date(d))/864e5;return diff<=2}
 
 function render(){
-  const list=campaigns.filter(c=>active==="All"||c.cat===active);
-  grid.innerHTML=list.map(c=>`
+  const list=campaigns.map((c,i)=>({c,i})).filter(o=>active==="All"||o.c.cat===active);
+  grid.innerHTML=list.map(({c,i})=>`
     <div class="card">
       <div class="banner" style="background:linear-gradient(135deg,#eef2ff,#faf0ff)">
         ${c.img?`<img src="${c.img}" alt="${c.vendor} campaign" onerror="this.remove()">`:c.emoji}
@@ -164,11 +193,47 @@ function render(){
         <div class="vendor">${c.vendor}</div>
         <div class="title">${c.title}</div>
         ${c.deal?`<div class="deal">${c.deal}</div>`:''}
+        <div class="actions">
+          <button class="btn primary" data-email="${i}">✉️ Open email</button>
+          <button class="btn" data-pitch="${i}">💬 One Line Sales Pitch</button>
+        </div>
         <div class="meta"><span>📅 ${fmt(c.date)}</span><span class="tag">${c.emoji} ${c.cat}</span></div>
       </div>
     </div>`).join('');
   empty.style.display=list.length?'none':'block';
 }
+
+const overlay=document.getElementById('overlay'), mTitle=document.getElementById('mTitle'), mBody=document.getElementById('mBody'), mFoot=document.getElementById('mFoot');
+function openModal(title,body,foot){mTitle.textContent=title;mBody.innerHTML=body;mFoot.innerHTML=foot||'';mFoot.style.display=foot?'flex':'none';overlay.classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){overlay.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('mClose').onclick=closeModal;
+overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+function showEmail(i){
+  const c=campaigns[i], e=c.email||{};
+  let body='';
+  if(e.blocks&&e.blocks.length){
+    body=e.blocks.map(b=>b.href?`<a href="${b.href}" target="_blank" rel="noopener"><img src="${b.img}" alt="${c.vendor}" onerror="this.remove()"></a>`:`<img src="${b.img}" alt="${c.vendor}" onerror="this.remove()">`).join('');
+  } else if(e.html){ body=`<div class="txt">${e.html}</div>`; }
+  else { body=`<div class="txt">${c.deal||''}</div>`; }
+  const foot=e.cta?`<a class="btn primary" href="${e.cta.href}" target="_blank" rel="noopener">${e.cta.label}</a>`:'';
+  openModal(`${c.emoji} ${c.title}`,body,foot);
+}
+function showPitch(i){
+  const c=campaigns[i], p=pitchData[i]; if(!p)return;
+  openModal(`💬 ${c.vendor} — One Line Sales Pitch`,`
+    <div class="pitch">
+      <div class="opener">${p.opener}</div>
+      <div><h4>🎯 Business use case</h4><p>${p.useCase}</p></div>
+      <div><h4>🚀 Why buy now</h4><p>${p.why}</p></div>
+    </div>`);
+}
+grid.addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  if(b.dataset.email!==undefined)showEmail(+b.dataset.email);
+  if(b.dataset.pitch!==undefined)showPitch(+b.dataset.pitch);
+});
 
 chipsEl.innerHTML=cats.map(c=>`<button class="chip${c==='All'?' active':''}" data-cat="${c}">${c}</button>`).join('');
 chipsEl.addEventListener('click',e=>{
