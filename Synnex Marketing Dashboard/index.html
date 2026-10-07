@@ -69,7 +69,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Tuesday 6 October 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Wednesday 7 October 2026</div>
     </div>
   </header>
 
@@ -97,6 +97,25 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"HP",
+    title:"Get more from your desktop with HP EliteBoard G1a",
+    date:"2026-10-07",
+    cat:"Devices",
+    emoji:"⌨️",
+    deal:"🎁 HP EliteBoard G1a – the whole PC built into a keyboard + Free delivery over $700ex + Buyback · Offer ends 31 Oct 2026 or while stocks last",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-02-10-26/hp-ps-edm-02-10-26_01.jpg",
+    email:{
+      blocks:[
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-02-10-26/hp-ps-edm-02-10-26_01.jpg", href:"mailto:hppsg@au.synnex-grp.com"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-02-10-26/hp-ps-edm-02-10-26_02.jpg", href:""},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-02-10-26/hp-ps-edm-02-10-26_03.jpg", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xyo-RVfjDZo3XTDKnPs6pz6zuxIUPFx2XUgja"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-02-10-26/hp-ps-edm-02-10-26_04.jpg", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xyo-RVfjDZo3XTDKnPs6pz6zuxIUPFx2XUgjq"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-02-10-26/hp-ps-edm-02-10-26_05.jpg", href:""}
+      ],
+      cta:{label:"Explore EliteBoard G1a →", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1Xyo-RVfjDZo3XTDKnPs6pz6zuxIUPFx2XUgja"}
+    }
+  },
   {
     vendor:"Microsoft (Synnex CSP)",
     title:"Unlock accelerated Microsoft Cloud growth with Synnex CSP",
@@ -154,6 +173,11 @@ const campaigns = [
 
 const pitchData = [
   {
+    opener:"“Imagine a full Windows PC hiding inside a keyboard — zero tower, zero clutter, and a desk that finally looks tidy.”",
+    useCase:"Hot-desking offices, reception, hybrid workspaces and healthcare or education sites that want a compact, secure desktop without a separate box under the desk.",
+    why:"HP EliteBoard G1a packs business-grade power and AI-ready performance into the keyboard itself, cutting cabling and desk footprint — and with free delivery over $700ex and Buyback on old devices, the refresh pays for itself. Offer ends 31 Oct."
+  },
+  {
     opener:"“You’re already buying Microsoft 365 and Azure — let’s make sure every licence comes with the funding and support you’re entitled to.”",
     useCase:"Businesses renewing or growing Microsoft 365, Copilot or Azure subscriptions that want one partner to manage licensing, billing and adoption.",
     why:"Same Microsoft products, but bought through Synnex CSP they come wrapped in extra incentives and enablement funding — so the customer gets better onboarding and support at no extra cost."
@@ -174,7 +198,7 @@ const grid=document.getElementById('grid'), chipsEl=document.getElementById('chi
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-10-06");
+const today=new Date("2026-10-07");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
