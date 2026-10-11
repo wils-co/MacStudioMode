@@ -69,7 +69,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Thursday 8 October 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Sunday 11 October 2026</div>
     </div>
   </header>
 
@@ -97,6 +97,26 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"HP",
+    title:"Power hybrid work with the new HP ProBook G2a",
+    date:"2026-10-11",
+    cat:"Devices",
+    emoji:"💼",
+    deal:"🎁 New HP ProBook G2a for hybrid work + Free delivery over $700ex + Buyback on old devices · Offer ends 31 Oct 2026 or while stocks last",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-07-10-26/hp-ps-edm-07-10-26_01.jpg",
+    email:{
+      blocks:[
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-07-10-26/hp-ps-edm-07-10-26_01.jpg", href:""},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-07-10-26/hp-ps-edm-07-10-26_02.jpg", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1X2k-RVfjDZo3XTDKnjs6pz7yexIUPFx2XUljq"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-07-10-26/hp-ps-edm-07-10-26_03.jpg", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1X2k-RVfjDZo3XTDKnjs6pz7yexIUPFx2XUliq"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-07-10-26/hp-ps-edm-07-10-26_04.jpg", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1X2k-RVfjDZo3XTDKnjs6pz7yexIUPFx2XUljK"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-07-10-26/hp-ps-edm-07-10-26_05.jpg", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1X2k-RVfjDZo3XTDKnjs6pz7yexIUPFx2XUlja"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-07-10-26/hp-ps-edm-07-10-26_06.jpg", href:""}
+      ],
+      cta:{label:"Explore ProBook G2a →", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1X2k-RVfjDZo3XTDKnjs6pz7yexIUPFx2XUljq"}
+    }
+  },
   {
     vendor:"HP",
     title:"Get more from your desktop with HP EliteBoard G1a",
@@ -173,6 +193,11 @@ const campaigns = [
 
 const pitchData = [
   {
+    opener:"“A sleek, business-grade laptop built for the office, the kitchen table and everywhere in between — hybrid work, sorted.”",
+    useCase:"SMBs, schools and professional-services firms rolling out laptops to hybrid and remote staff who need reliable, secure everyday performance at a sensible price.",
+    why:"The new HP ProBook G2a brings modern, AI-ready business performance to the mainstream — and with free delivery over $700ex and Buyback on old devices, the refresh is easier to justify. Offer ends 31 Oct."
+  },
+  {
     opener:"“Imagine a full Windows PC hiding inside a keyboard — zero tower, zero clutter, and a desk that finally looks tidy.”",
     useCase:"Hot-desking offices, reception, hybrid workspaces and healthcare or education sites that want a compact, secure desktop without a separate box under the desk.",
     why:"HP EliteBoard G1a packs business-grade power and AI-ready performance into the keyboard itself, cutting cabling and desk footprint — and with free delivery over $700ex and Buyback on old devices, the refresh pays for itself. Offer ends 31 Oct."
@@ -198,7 +223,7 @@ const grid=document.getElementById('grid'), chipsEl=document.getElementById('chi
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-10-08");
+const today=new Date("2026-10-11");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
