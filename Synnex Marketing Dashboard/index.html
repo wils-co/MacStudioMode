@@ -69,7 +69,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Tuesday 13 October 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Wednesday 14 October 2026</div>
     </div>
   </header>
 
@@ -97,6 +97,23 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"Microsoft (Synnex CSP)",
+    title:"Get clarity on your Partner Center status with Synnex CSP",
+    date:"2026-10-14",
+    cat:"Cloud",
+    emoji:"🩺",
+    deal:"🎁 Complimentary Partner Health Check — review your Microsoft Partner Center standing with practical, actionable guidance",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-15-10-26/hero.jpg",
+    email:{
+      blocks:[
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-15-10-26/hero.jpg", href:""},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-15-10-26/sec-1.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1X-g-RVfjDZo3XTEIXns6pz8yOxIUPFx2nykja"},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-15-10-26/sec-2.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1X-g-RVfjDZo3XTEIXns6pz8yOxIUPFx2nykjq"}
+      ],
+      cta:{label:"Book your Health Check →", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1X-g-RVfjDZo3XTEIXns6pz8yOxIUPFx2nykja"}
+    }
+  },
   {
     vendor:"Intel",
     title:"Win tickets to see Bruno Mars live with Synnex and Intel",
@@ -193,6 +210,11 @@ const campaigns = [
 
 const pitchData = [
   {
+    opener:"“Do you really know where you stand in Partner Center? Let us run a free health check and find out.”",
+    useCase:"Microsoft resellers and MSPs who want clear visibility of their partner standing, status and requirements before renewals, incentives or new competencies come up.",
+    why:"Synnex CSP offers a complimentary Partner Health Check with practical, actionable guidance — zero cost, and it can uncover missed value and keep the partnership in good standing."
+  },
+  {
     opener:"“Your next Intel-powered PC order could land you front-row at Bruno Mars — who says refresh cycles can't be fun?”",
     useCase:"Resellers and MSPs quoting Intel-based business laptops and desktops for refresh projects, who want an extra reason to close deals this quarter.",
     why:"Synnex and Intel are rewarding partners with a chance to win Bruno Mars tickets, so every Intel-powered deal you place now comes with bonus upside. T&Cs apply."
@@ -223,7 +245,7 @@ const grid=document.getElementById('grid'), chipsEl=document.getElementById('chi
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-10-13");
+const today=new Date("2026-10-14");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
