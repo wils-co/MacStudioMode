@@ -69,7 +69,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Monday 9 November 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Tuesday 10 November 2026</div>
     </div>
   </header>
 
@@ -97,6 +97,24 @@
 
 <script>
 const campaigns = [
+  {
+    vendor:"Logitech",
+    title:"Make your meeting spaces AV-ready with Logitech Rally Board 65",
+    date:"2026-11-10",
+    cat:"AV & Collab",
+    emoji:"🎥",
+    deal:"🎁 Express Room Setup with Logitech Rally Board 65 for Microsoft Teams Rooms · Free delivery over $700ex + Buyback on old devices · Terms and conditions apply",
+    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Logitech/export-09-11-26/logitech-edm-09-11-26_01.jpg",
+    email:{
+      blocks:[
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Logitech/export-09-11-26/logitech-edm-09-11-26_01.jpg", href:""},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Logitech/export-09-11-26/logitech-edm-09-11-26_02.jpg", href:""},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Logitech/export-09-11-26/logitech-edm-09-11-26_03.jpg", href:""},
+        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/Logitech/export-09-11-26/logitech-edm-09-11-26_04.jpg", href:"mailto:logitechvc@au.synnex-grp.com?subject=Logitech%20Rally%20Board%2065%20-%20Express%20Room%20Setup"}
+      ],
+      cta:{label:"Talk to the Logitech VC team →", href:"mailto:logitechvc@au.synnex-grp.com?subject=Logitech%20Rally%20Board%2065%20-%20Express%20Room%20Setup"}
+    }
+  },
   {
     vendor:"Apple",
     title:"Apple Monthly Newsletter | November 2026",
@@ -213,29 +231,14 @@ const campaigns = [
       cta:{label:"Talk to Synnex CSP →", href:"mailto:csp@au.synnex-grp.com"}
     }
   },
-  {
-    vendor:"HP",
-    title:"Last chance to save on the HP EliteBook G1 range",
-    date:"2026-10-26",
-    cat:"Devices",
-    emoji:"⏰",
-    deal:"💸 Last chance — save on the HP EliteBook G1 range + 🎁 Free delivery over $700ex + Buyback on old devices · Offer ends 31 October 2026 or while stocks last",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/EXPORT-26-10-26/hp-edm-26-10-26_01.jpg",
-    email:{
-      blocks:[
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/EXPORT-26-10-26/hp-edm-26-10-26_01.jpg", href:""},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/EXPORT-26-10-26/hp-edm-26-10-26_02.jpg", href:""},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/EXPORT-26-10-26/hp-edm-26-10-26_03.jpg", href:""},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/EXPORT-26-10-26/hp-edm-26-10-26_04.jpg", href:""},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-18-05-26/4.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1XIm-RVfjDZo3XTEIFHs6pz90OxIUPFx2n6li8"},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-24-07-26/hp-edm-24-07-26_04.jpg", href:"mailto:hppsg@au.synnex-grp.com"}
-      ],
-      cta:{label:"Talk to the HP team →", href:"mailto:hppsg@au.synnex-grp.com"}
-    }
-  },
 ];
 
 const pitchData = [
+  {
+    opener:"“Turn any meeting room into a Teams Room in a day — Logitech Rally Board 65 is the all-in-one, AV-ready answer.”",
+    useCase:"Businesses, councils and schools fitting out or upgrading meeting rooms and huddle spaces for Microsoft Teams Rooms without a complex AV install.",
+    why:"Rally Board 65 brings display, camera and audio together in one flexible board, with Synnex's Express Room Setup support, free delivery over $700ex and Buyback on old devices making the rollout quick and easy to quote. T&Cs apply."
+  },
   {
     opener:"“New to Mac? Let’s get your customers on Apple — with the New to Mac program and a shot at the Bruno Mars incentive.”",
     useCase:"Resellers and MSPs with Windows-based customers (business, education, councils) considering a first Mac fleet, plus partners wanting Apple Partner Portal access.",
@@ -271,18 +274,13 @@ const pitchData = [
     useCase:"Resellers and MSPs selling Microsoft 365, Azure and Dynamics who want a CSP partner that supports growth, billing and customer success.",
     why:"A dedicated Synnex CSP team (1300 100 108) helps partners expand recurring cloud revenue without the overhead of going direct. T&Cs apply."
   },
-  {
-    opener:"“Last call on EliteBook G1 — lock in premium business laptops at sale pricing before the month runs out.”",
-    useCase:"Businesses, councils and schools finishing an end-of-October laptop refresh, or execs and mobile teams who need a premium, secure, light notebook.",
-    why:"EliteBook G1 is HP's flagship business range; the offer ends 31 Oct or while stocks last, with free delivery over $700ex and Buyback on old devices softening the refresh cost. Stock on hand only, no backorders, T&Cs apply."
-  },
 ];
 
 const grid=document.getElementById('grid'), chipsEl=document.getElementById('chips'), empty=document.getElementById('empty');
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-11-09");
+const today=new Date("2026-11-10");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
