@@ -69,7 +69,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Tuesday 10 November 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Thursday 12 November 2026</div>
     </div>
   </header>
 
@@ -214,23 +214,6 @@ const campaigns = [
       cta:{label:"See the HP printer deal →", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1XMl-RVfjDZo3XTEJXXs6pz_yexIUPFx2nEgi8"}
     }
   },
-  {
-    vendor:"Microsoft (Synnex CSP)",
-    title:"Grow your Microsoft Cloud business with Synnex CSP",
-    date:"2026-10-28",
-    cat:"Cloud",
-    emoji:"☁️",
-    deal:"🎁 Grow your Microsoft Cloud business with Synnex CSP — partner support, incentives and one team to help you scale",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-27-10-26/ms-csp-27-10-26_01.jpg",
-    email:{
-      blocks:[
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-27-10-26/ms-csp-27-10-26_01.jpg", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1XMg-RVfjDZo3XTEIFns6pz-zexIUPFx2n-mkK"},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-27-10-26/ms-csp-27-10-26_02.jpg", href:""},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-CSP/export-27-10-26/ms-csp-27-10-26_03.jpg", href:"mailto:csp@au.synnex-grp.com"}
-      ],
-      cta:{label:"Talk to Synnex CSP →", href:"mailto:csp@au.synnex-grp.com"}
-    }
-  },
 ];
 
 const pitchData = [
@@ -269,18 +252,13 @@ const pitchData = [
     useCase:"Offices, schools and councils replacing ageing print fleets or setting up new sites that need fast, secure, reliable multi-function printing.",
     why:"HP printers pair strong productivity features with Synnex free delivery over $700ex and Buyback on old devices, so the refresh is easy to quote and justify. T&Cs apply."
   },
-  {
-    opener:"“Ready to grow your Microsoft Cloud business? Synnex CSP gives you the tools, support and incentives to scale faster.”",
-    useCase:"Resellers and MSPs selling Microsoft 365, Azure and Dynamics who want a CSP partner that supports growth, billing and customer success.",
-    why:"A dedicated Synnex CSP team (1300 100 108) helps partners expand recurring cloud revenue without the overhead of going direct. T&Cs apply."
-  },
 ];
 
 const grid=document.getElementById('grid'), chipsEl=document.getElementById('chips'), empty=document.getElementById('empty');
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-11-10");
+const today=new Date("2026-11-12");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
