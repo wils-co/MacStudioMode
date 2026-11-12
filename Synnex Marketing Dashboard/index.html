@@ -69,7 +69,7 @@
   <header>
     <div>
       <h1>📣 Synnex Marketing Pulse</h1>
-      <div class="sub">Marketing material sent to your customers · Updated Thursday 12 November 2026</div>
+      <div class="sub">Marketing material sent to your customers · Updated Friday 13 November 2026</div>
     </div>
   </header>
 
@@ -180,40 +180,6 @@ const campaigns = [
       cta:{label:"Talk to the Google Cloud team →", href:"mailto:googlecloud@au.synnex-grp.com"}
     }
   },
-  {
-    vendor:"Microsoft OEM",
-    title:"The Ultimate BTS Experience Is Up For Grabs",
-    date:"2026-10-29",
-    cat:"Incentive",
-    emoji:"🎤",
-    deal:"🏆 Win the ultimate BTS experience with Microsoft OEM purchases from Synnex · 🎁 $5 fee applies to drop-ship orders · Terms and conditions apply",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-OEM/export-27-10-26/oem-edm-27-10-26_01.jpg",
-    email:{
-      blocks:[
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-OEM/export-27-10-26/oem-edm-27-10-26_01.jpg", href:""},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-OEM/export-27-10-26/oem-edm-27-10-26_02.jpg", href:""},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/MS-OEM/export-27-10-26/oem-edm-27-10-26_03.jpg", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1XMm-RVfjDZo3XTEJXPs6pz_y.xIUPFx2nAjk8"}
-      ],
-      cta:{label:"Shop Microsoft OEM now →", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1XMm-RVfjDZo3XTEJXPs6pz_y.xIUPFx2nAjk8"}
-    }
-  },
-  {
-    vendor:"HP",
-    title:"The ultimate business printer for powerful productivity",
-    date:"2026-10-29",
-    cat:"Devices",
-    emoji:"🖨️",
-    deal:"💸 HP business printer promotion + 🎁 Free delivery over $700ex + Buyback on old devices · Terms and conditions apply",
-    img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-29-10-26/HP-email-01-hero.png",
-    email:{
-      blocks:[
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-29-10-26/HP-email-01-hero.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1XMl-RVfjDZo3XTEJXXs6pz_yexIUPFx2nApkK"},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-29-10-26/HP-email-02-features.png", href:""},
-        {img:"https://www.synnex.com.au/Portals/0/Content/promotions/EFLASH/2026/HP/export-29-10-26/HP-email-03-promotion.png", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1XMl-RVfjDZo3XTEJXXs6pz_yexIUPFx2nEgi8"}
-      ],
-      cta:{label:"See the HP printer deal →", href:"https://marketing.synnex.com.au/lt.php?x=4lZy~GE2I6Kc65V7_dQ6UBRs~3FTvAPyw~kwYXU5JFnL78.s-Uy7xOFs1XMl-RVfjDZo3XTEJXXs6pz_yexIUPFx2nEgi8"}
-    }
-  },
 ];
 
 const pitchData = [
@@ -242,23 +208,13 @@ const pitchData = [
     useCase:"Resellers and MSPs with schools, councils and businesses standardising on Chromebooks, Chrome browser management or Google Workspace.",
     why:"Synnex’s 2027 Google Chrome campaign makes it easy to bundle Chrome licensing and Google Cloud services with one trusted distributor and a dedicated Google Cloud team. T&Cs apply."
   },
-  {
-    opener:"“Buy Microsoft OEM licensing from Synnex and your next order could win the ultimate BTS experience.”",
-    useCase:"Resellers building new PCs or refreshing fleets who regularly attach Windows and Office OEM licences to hardware deals.",
-    why:"Every Microsoft OEM purchase doubles as an entry to a once-in-a-lifetime prize, making a routine licence attach more rewarding. $5 fee applies to drop-ship orders; T&Cs apply."
-  },
-  {
-    opener:"“Need one printer that keeps up with the whole office? HP’s latest business printer is built for powerful productivity — with free delivery over $700ex.”",
-    useCase:"Offices, schools and councils replacing ageing print fleets or setting up new sites that need fast, secure, reliable multi-function printing.",
-    why:"HP printers pair strong productivity features with Synnex free delivery over $700ex and Buyback on old devices, so the refresh is easy to quote and justify. T&Cs apply."
-  },
 ];
 
 const grid=document.getElementById('grid'), chipsEl=document.getElementById('chips'), empty=document.getElementById('empty');
 const cats=["All",...new Set(campaigns.map(c=>c.cat))];
 let active="All";
 
-const today=new Date("2026-11-12");
+const today=new Date("2026-11-13");
 const weekAgo=new Date(today); weekAgo.setDate(today.getDate()-7);
 
 function fmt(d){return new Date(d).toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short'})}
